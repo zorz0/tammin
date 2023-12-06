@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->longText('footer_desc');
+            $table->longText('logo');
+            $table->string('website_name');
+            $table->longText('seo_title');
+            $table->longText('seo_desc');
+            $table->longText('description');
             $table->timestamps();
         });
     }

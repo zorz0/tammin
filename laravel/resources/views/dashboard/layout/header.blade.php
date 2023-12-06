@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
 Version: 4.5.6
 Author: KeenThemes
@@ -44,7 +44,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
-
+    @yield('custpm-style')
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">

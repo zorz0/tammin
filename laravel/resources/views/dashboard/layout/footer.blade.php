@@ -10,7 +10,7 @@
 <!-- END FOOTER -->
 <!--[if lt IE 9]>
 <script src="{{ asset('dashboard') }}//assets/global/plugins/respond.min.js"></script>
-<script src="{{ asset('dashboard') }}//assets/global/plugins/excanvas.min.js"></script> 
+<script src="{{ asset('dashboard') }}//assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
 <script src="{{ asset('dashboard') }}//assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -29,6 +29,7 @@
 <script src="{{ asset('dashboard') }}//assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 <script src="{{ asset('dashboard') }}//assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+@yield('custpm-script')
 </body>
 
 </html>

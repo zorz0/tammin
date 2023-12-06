@@ -1,5 +1,6 @@
 @include('dashboard.layout.header')
 @include('dashboard.layout.sidebar')
+@include('sweetalert::alert')
 
 
 @yield('content')

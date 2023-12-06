@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ClientController;
+use App\Http\Controllers\Dashboard\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 // use App\Http\Controllers\HomeController;
@@ -31,7 +33,7 @@ Route::get('/', function () {
 
 
 // // Define routes for each page
-// Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 // Route::get('/price', [PriceController::class, 'index'])->name('price');
 
@@ -46,3 +48,21 @@ Route::get('/', function () {
 
 // Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 
+Route::controller(ServiceController::class)->prefix('services')->name('services.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{service}', 'edit')->name('edit');
+        Route::put('/{service}', 'update')->name('update');
+        Route::delete('destroy/{service}', 'destroy')->name('destroy');
+
+});
+
+Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'store')->name('store');
+    Route::get('/{client}', 'edit')->name('edit');
+    Route::put('/{client}', 'update')->name('update');
+    Route::delete('destroy/{client}', 'destroy')->name('destroy');
+
+});
