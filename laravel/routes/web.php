@@ -2,13 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PriceController;
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WebsiteSettingController;
-use App\Http\Controllers\PaymentController;
+// use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\PriceController;
+// use App\Http\Controllers\AboutUsController;
+// use App\Http\Controllers\DashboardController;
+// use App\Http\Controllers\UserController;
+// use App\Http\Controllers\WebsiteSettingController;
+// use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,28 +21,28 @@ use App\Http\Controllers\PaymentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
-// Define routes for each page
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// // Define routes for each page
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/price', [PriceController::class, 'index'])->name('price');
+// Route::get('/price', [PriceController::class, 'index'])->name('price');
 
-Route::get('/about-us', [AboutUsController::class, 'index'])->name('about');
+// Route::get('/about-us', [AboutUsController::class, 'index'])->name('about');
 
-Route::middleware(['auth'])->group(function () {
-    // Authenticated routes
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/user', [UserController::class, 'index'])->name('user');
-    Route::get('/website-settings', [WebsiteSettingController::class, 'index'])->name('website.settings');
-});
+// Route::middleware(['auth'])->group(function () {
+//     // Authenticated routes
+//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//     Route::get('/user', [UserController::class, 'index'])->name('user');
+//     Route::get('/website-settings', [WebsiteSettingController::class, 'index'])->name('website.settings');
+// });
 
-Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
+// Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 
