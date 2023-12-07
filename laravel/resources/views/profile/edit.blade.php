@@ -63,7 +63,11 @@
         <div class="portlet light bordered">
             
             <div class="portlet-body form">
-                <form role="form">
+
+                
+                <form role="form"   action="{{ route('password.update') }}" method="post">
+                    @csrf
+                    @method('put')
                     <div class="form-body">
                         
                         <div class="form-group">
