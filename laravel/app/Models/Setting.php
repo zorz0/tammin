@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+    protected $fillable=['website_name','description','footer_desc','seo_title','seo_desc','logo'];
+    const PATH="images/settings/";
 }

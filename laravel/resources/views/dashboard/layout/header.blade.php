@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--
+<!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
 Version: 4.5.6
 Author: KeenThemes
@@ -21,7 +21,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <head>
         <meta charset="utf-8" />
-        <title>Metronic | Blank Page Layout</title>
+        <title>Metronic | Form Validation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
@@ -33,6 +33,13 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{ asset('dashboard') }}/assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
         <link href="{{ asset('dashboard') }}/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="{{ asset('dashboard') }}/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('dashboard') }}/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('dashboard') }}/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('dashboard') }}/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5-rtl.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('dashboard') }}/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{ asset('dashboard') }}/assets/global/css/components-md-rtl.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="{{ asset('dashboard') }}/assets/global/css/plugins-md-rtl.min.css" rel="stylesheet" type="text/css" />
@@ -44,7 +51,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
-    @yield('custpm-style')
+
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
@@ -191,7 +198,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <span class="from"> Lisa Wong </span>
                                                     <span class="time">Just Now </span>
                                                 </span>
-                                                <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                                <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh{{ asset('dashboard') }}. </span>
                                             </a>
                                         </li>
                                         <li>
@@ -364,7 +371,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="page_user_profile_1.html">
+                                    <a href="{{ route('profile.edit') }}">
                                         <i class="icon-user"></i> My Profile </a>
                                 </li>
                                 <li>
@@ -398,7 +405,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-quick-sidebar-toggler">
-                            <a href="javascript:;" class="dropdown-toggle">
+                            <a href="{{ route('logout') }}" class="dropdown-toggle">
                                 <i class="icon-logout"></i>
                             </a>
                         </li>

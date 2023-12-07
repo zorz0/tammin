@@ -79,6 +79,27 @@
                     </ul>
                 </li>
                {{--clients end  --}}
+  {{-- setting start--}}
+  <li class="heading">
+    <h3 class="uppercase">الاعدادات</h3>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-service"></i>
+        <span class="title">الاعدادات</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a href="{{ route('settings.index')}}" class="nav-link ">
+                <span class="title">الاعدادات</span>
+            </a>
+        </li>
+        
+       
+    </ul>
+</li>
+{{--setting end  --}}
 
 
             </ul>

@@ -3,9 +3,7 @@
 @section('content')
 
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title"> خدماتنا
-    <small>اضافة خدمة جديدة</small>
-</h3>
+<h3 class="page-title"> خدماتنا</h3>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
  <!-- BEGIN DASHBOARD STATS 1-->
@@ -16,7 +14,8 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-social-dribbble font-green"></i>
-                <span class="caption-subject font-green bold uppercase">اضافة خدمة</span>
+                <span class="caption-subject font-green bold uppercase"><a href="{{ route('services.create') }}">
+                    اضافة خدمه جديده</a></span>
             </div>
             <div class="actions">
                 <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
@@ -69,7 +68,7 @@
                 </table>
 
             </div>
-
+{{ $services->links() }}
         </div>
     </div>
     <!-- END SAMPLE TABLE PORTLET-->

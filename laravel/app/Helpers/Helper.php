@@ -2,11 +2,9 @@
 use Illuminate\Support\Facades\Storage;
 
 if (!function_exists('uploadImage ')) {
-    function uploadImage($image, $path,$old_image=null)
+    function uploadImage($image, $path)
     {
-        if($old_image){
-            deleteImage($old_image, $path);
-        }
+        
         if ($image) {
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->storeAs($path, $imageName, 'public');

@@ -1,16 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\ServiceController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\SettingController;
 
-// use App\Http\Controllers\HomeController;
-// use App\Http\Controllers\PriceController;
-// use App\Http\Controllers\AboutUsController;
-// use App\Http\Controllers\DashboardController;
-// use App\Http\Controllers\UserController;
-// use App\Http\Controllers\WebsiteSettingController;
-// use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,47 +17,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Auth::routes();
+require __DIR__.'/auth.php';
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-// // Define routes for each page
-
-
-// Route::get('/price', [PriceController::class, 'index'])->name('price');
-
-// Route::get('/about-us', [AboutUsController::class, 'index'])->name('about');
-
-// Route::middleware(['auth'])->group(function () {
-//     // Authenticated routes
-//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-//     Route::get('/user', [UserController::class, 'index'])->name('user');
-//     Route::get('/website-settings', [WebsiteSettingController::class, 'index'])->name('website.settings');
-// });
-
-// Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
-
-Route::controller(ServiceController::class)->prefix('services')->name('services.')->group(function () {
+Route::middleware('auth')->group(function(){
+    Route::get('/home', function () {return view('dashboard.index');})->name('dashboard');
+    Route::controller(ServiceController::class)->prefix('services')->name('services.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/', 'store')->name('store');
         Route::get('/{service}', 'edit')->name('edit');
         Route::put('/{service}', 'update')->name('update');
         Route::delete('destroy/{service}', 'destroy')->name('destroy');
-
-});
-
-Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {
+    
+    });
+    Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/', 'store')->name('store');
     Route::get('/{client}', 'edit')->name('edit');
     Route::put('/{client}', 'update')->name('update');
     Route::delete('destroy/{client}', 'destroy')->name('destroy');
-
+    
+    });
+    Route::controller(SettingController::class)->prefix('settings')->name('settings.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{setting}', 'edit')->name('edit');
+        Route::put('/{setting}', 'update')->name('update');
+        
+        });
 });

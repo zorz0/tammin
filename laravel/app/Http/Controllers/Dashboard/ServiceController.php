@@ -10,7 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class ServiceController extends Controller
 {
     public function index(){
-        $services = Service::all();
+        $services = Service::paginate(1,['id','name','price','description']);
         return view('dashboard.services.index', ['services' => $services]);
     }
 

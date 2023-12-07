@@ -71,7 +71,7 @@
                 </table>
 
             </div>
-
+            {{ $clients->links() }}
         </div>
     </div>
     <!-- END SAMPLE TABLE PORTLET-->
