@@ -36,11 +36,12 @@
                         @foreach ($settings  as $setting )
                         <tr>
                             <td> {{ $loop->iteration }} </td>
+                            <td> {{ $setting->website_name }}</td>
                             <td>
                                 <img src="{{ asset('storage/'.$setting::PATH.$setting->logo) }}" alt="logo" style="width: 10rem;height:10rem;">
                             </td>
-                            <td> {{ $setting->website_name }}</td>
-                            <td> {{ $setting->logo }} </td>
+                           
+                           
                             <td> {{ $setting->description }} </td>
                             <td> {{ $setting->seo_title }} </td>
                             <td> {{ $setting->seo_desc }} </td>
