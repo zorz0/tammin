@@ -60,6 +60,7 @@
             </div>
            
         </div>
+       
         <div class="portlet light bordered">
             
             <div class="portlet-body form">
@@ -69,7 +70,7 @@
                     @csrf
                     @method('put')
                     <div class="form-body">
-                        
+            
                         <div class="form-group">
                             <label for="exampleInputPassword1">الباسورد الحالي</label>
                             <div class="input-group">
@@ -79,10 +80,10 @@
                                 </span>
                             </div>
                             @error('current_password')
-                            <small class="text">{{ $message }}</small>
+                            <small class="text-danger">{{ $message }}</small>
                         @enderror
                         </div>
-                     
+                       
                         <div class="form-group">
                             <label for="exampleInputPassword1">الباسورد الجديد</label>
                             <div class="input-group">
@@ -92,7 +93,7 @@
                                 </span>
                             </div>
                             @error('password')
-                                <small class="text">{{ $message }}</small>
+                                <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                         <div class="form-group">
@@ -104,13 +105,13 @@
                                 </span>
                             </div>
                             @error('password_confirmation')
-                            <small class="text">{{ $message }}</small>
+                            <small class="text-danger">{{ $message }}</small>
                         @enderror
+
                         </div>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn blue">تغير</button>
-                      
                     </div>
                 </form>
             </div>
