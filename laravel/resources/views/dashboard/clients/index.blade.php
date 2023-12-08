@@ -3,8 +3,8 @@
 @section('content')
 
 <!-- BEGIN PAGE TITLE-->
-<h3 class="page-title"> Blank Page Layout
-    <small>blank page layout</small>
+<h3 class="page-title"> العملاء
+    
 </h3>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
@@ -16,19 +16,9 @@
         <div class="portlet-title">
             <div class="caption">
                 <i class="icon-social-dribbble font-green"></i>
-                <span class="caption-subject font-green bold uppercase">Simple Table</span>
+                <span class="caption-subject font-green bold uppercase">العملاء</span>
             </div>
-            <div class="actions">
-                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                    <i class="icon-cloud-upload"></i>
-                </a>
-                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                    <i class="icon-wrench"></i>
-                </a>
-                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                    <i class="icon-trash"></i>
-                </a>
-            </div>
+           
         </div>
         <div class="portlet-body">
             <div class="table-scrollable">

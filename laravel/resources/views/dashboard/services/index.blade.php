@@ -17,17 +17,7 @@
                 <span class="caption-subject font-green bold uppercase"><a href="{{ route('services.create') }}">
                     اضافة خدمه جديده</a></span>
             </div>
-            <div class="actions">
-                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                    <i class="icon-cloud-upload"></i>
-                </a>
-                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                    <i class="icon-wrench"></i>
-                </a>
-                <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                    <i class="icon-trash"></i>
-                </a>
-            </div>
+            
         </div>
         <div class="portlet-body">
             <div class="table-scrollable">
