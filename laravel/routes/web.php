@@ -22,9 +22,6 @@ use App\Http\Controllers\Dashboard\DashboardController;
 Route::get('/',function(){
     return view('welcome');
 });
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,7 +40,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/{service}', 'edit')->name('edit');
         Route::put('/{service}', 'update')->name('update');
         Route::delete('destroy/{service}', 'destroy')->name('destroy');
-    
+
     });
     Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {
     Route::get('/', 'index')->name('index');
@@ -51,12 +48,12 @@ Route::middleware('auth')->group(function(){
     Route::get('/{client}', 'edit')->name('edit');
     Route::put('/{client}', 'update')->name('update');
     Route::delete('destroy/{client}', 'destroy')->name('destroy');
-    
+
     });
     Route::controller(SettingController::class)->prefix('settings')->name('settings.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/{setting}', 'edit')->name('edit');
         Route::put('/{setting}', 'update')->name('update');
-        
+
         });
 });
