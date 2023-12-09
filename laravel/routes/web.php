@@ -20,7 +20,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 
 
 Route::get('/',function(){
-    return view('welcome');
+    return view('frontend.landing');
 });
 
 Route::middleware('auth')->group(function () {
