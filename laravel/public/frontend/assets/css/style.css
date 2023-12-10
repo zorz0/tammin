@@ -1,3 +1,400 @@
-body{
-direction: rtl;
+
+
+/* Start Variables */
+:root {
+    --main-color:#3498db;
+    --secondray-color: #07bc0c;;
+    --dark-color: #121212;    
+    --white-color: #fff;
+    --footer-background:#575757;
+    --section-color:#fafbfd;
+    --section-padding: 70px 0;
+    --box-shadw: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    --transition-duration: 0.3s;
+  }
+/* End Variables */
+/* Start Global Rules */
+   * {
+     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+  }
+  a{
+    text-decoration: none;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  body {
+    direction: rtl;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  visibility: visible;
+  overflow-x: hidden;
+  font-family: 'Dosis', sans-serif;
+font-family: 'Tajawal', sans-serif;
+font-family: 'Titillium Web', sans-serif;
+  color: #575757;
+}
+
+/* end globale rules */
+
+
+
+
+
+/* service */
+.service{
+  padding: var(--section-padding);
+}
+.service .service-google{
+  background-color: rgba(241,67,54,.05);
+}
+.service .service-twitter{
+  background-color: rgba(3,169,244,.05);
+}
+.service .content{
+  min-height: 10rem;
+}
+@media (max-width:1400px) {
+  .service .content{
+    min-height: 12rem;
+  }
+}
+/* why-tameeny */
+
+
+
+.why-tameeny {
+background-color: var( --section-color) !important;
+padding: var(--section-padding);
+}
+.why-tameeny .content img{
+    height: 8rem;
+}
+
+
+/*  tameeny -car */
+.tameeny-car{
+
+padding: var(--section-padding);
+}
+
+.tameeny-car .content img{
+height: 10rem;
+}
+
+/* tameeny-price */
+.tameeny-price{
+    background-color: var( --section-color);
+    padding: var(--section-padding);
+}
+.tameeny-price .content {
+min-height: 15rem;
+
+}
+/* tameeny-app */
+
+.tameeny-app{
+ 
+    padding: var(--section-padding);
+}
+
+/* footer */
+.footer{
+    background-color: var(--footer-background);
+    padding: var(--section-padding);
+}
+/*  */
+.main-home{
+  width: 100%;
+  height: auto;
+  position: relative;
+  background-image: url(../images/banner-motor-bg.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding: 80px 0 40px;
+  background-size: 100%;
+}
+.bannar-backg{
+  position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #f3fafd;
+    top: 0;
+    height: 85%;
+}
+@media (min-width: 768px) and (max-width: 1399.98px)
+{ .bannar-backg::before,  .bannar-backg::after {
+    top: 14%;
+    width: 250px;
+    height: 400px;
+}}
+.bannar-backg::before{
+  position: absolute;
+  content: "";
+  background-image: url(../images/cf12cd3b51392ccc1401.png);
+  right: 6%;
+  max-height: 75%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+ .bannar-backg::after {
+  left: 3%;
+  background-image: url(../images/e93f43b50285645517b4.png);
+}
+ .bannar-backg::before,  .bannar-backg::after {
+  position: absolute;
+  content: "";
+  max-height: 75%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.insurance_tabs {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.insurance_tabs_item {
+  min-width: 150px;
+}
+
+.insurance_tabs_item_link__active {
+  border: 2px solid #149ade;
+  background-color: #e9f8ff;
+  box-shadow: 0 0 15px rgba(0,0,0,.13);
+}
+.insurance_tabs_item_link__active {
+  color: #149ade !important;
+}
+.insurance_tabs_item_link {
+  padding: .5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: .25rem;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #c3c2cb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+.insurance_tabs_item_link__active::before {
+  opacity: 1;
+  visibility: visible;
+}
+.insurance_tabs_item_link::before {
+  position: absolute;
+  border-style: solid;
+  border-width: 2px 0 0 2px;
+  border-radius: 4px 2px 2px 2px;
+  content: "";
+  display: inline-block;
+  bottom: -0.45rem;
+  right: 50%;
+  transform: translateX(50%) rotate(-135deg);
+  vertical-align: top;
+  height: .75rem;
+  width: .75rem;
+  background-color: #e9f8ff;
+
+  visibility: hidden;
+  transition: all .3s ease-in-out;
+}
+.insurance_tabs_item_link::before {
+  position: absolute;
+  border-style: solid;
+  border-width: 2px 0 0 2px;
+  border-radius: 4px 2px 2px 2px;
+  content: "";
+  display: inline-block;
+  bottom: -0.45rem;
+  right: 50%;
+  transform: translateX(50%) rotate(-135deg);
+  vertical-align: top;
+  height: .75rem;
+  width: .75rem;
+  background-color: #e9f8ff;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-in-out;
+}
+
+.banner .banner-heading {
+  font-size: 25px !important;
+  line-height: 50px !important;
+  font-weight: 700;
+  text-align: center;
+}
+/* gggggggggggggggggg */
+.titel-contant{
+  justify-content: center;
+}
+.tab-titel{
+  cursor: pointer;
+  border-radius: 10px 10px 0 0;
+  
+}
+/* .tab-titel:hover{
+  background-color: rgba(211, 208, 208, 0.3);
+} */
+.titel-contant .activee {
+  border-top: 2px var(--main-color) solid;
+  border-left: 2px var(--main-color) solid;
+  border-right: 2px var(--main-color) solid;
+  z-index: 30000;
+  
+}
+.tab-contant{
+  display: none;
+  opacity: 0;
+  
+}
+.tab-contant.activee{
+  opacity: 1;
+  display: block;
+}
+.color-container{
+  width: 150px;
+  position: fixed;
+  right: 15px;
+  top: 50px;
+  padding: 15px;
+}
+.color-container .color{
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 1px solid #1783d0;
+  border-radius: 3px;
+  margin: auto;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.color-container .selected-color{
+  border: 1px solid #000;
+}
+
+.input-of-buy
+{
+  text-align: right;
+}
+.boxs-for-buy{
+  text-align: right;
+  justify-content: center;
+  padding: 20px;
+  border-top: 0;
+  border: #149ade 2px solid;
+}
+.boxs-for-buy label{
+  font-size: 20px;
+}
+.slider-section{
+  padding: 20px;
+  border-top: 2px solid rgba(200, 200, 200, 0.518) ;
+  border-bottom: 2px solid rgba(200, 200, 200, 0.518) ;
+}
+
+
+
+
+/* start first section */
+.land-section{
+  background-color: transparent;
+  padding: 90px 0 100px;
+  background-image: url(../images/banner-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.gredint-box
+{
+  background: linear-gradient(180deg,#e4f5fe,#fff 15%);
+  padding: 20px 50px;
+  display: inline-block;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,.16);
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  border: none;
+  width: 100%;
+}
+.title-box{
+  padding: 10px 0 30px;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.title-box h1{
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: 700;
+}
+
+.contant-of-boxs button{
+  padding: 20px;
+  font-size: 30px;
+}
+
+.contant-of-boxs button h3:hover{
+  color: var(--secondray-color);
+}
+.contant-of-boxs button h5:hover{
+  color: var(--secondray-color);
+}
+
+/* //////////////////////////// */
+.accordion-button {
+  position: relative;
+ 
+}
+
+/* end first section */
+
+
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'%3E%3C!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--%3E%3Cpath fill='%233498db' d='M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z'/%3E%3C/svg%3E");
+  transform: var(--bs-accordion-btn-icon-transform);
+  left:5px;
+  color: var(--main-color);
+}
+.accordion-button::after {
+ 
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'%3E%3C!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--%3E%3Cpath fill='%233498db' d='M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z'/%3E%3C/svg%3E%0A");
+  position: absolute;
+  left:5px;
+ 
+}
+.accordion-collapse h6{
+  margin-left:1rem ;
+}
+.accordion-collapse .accordion-button {
+  background-color: var(--section-color);
+  margin-bottom: 1rem;
+  
 }

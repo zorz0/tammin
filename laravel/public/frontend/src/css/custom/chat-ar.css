@@ -1,0 +1,26 @@
+#custom_fc_button{width:10%;position: fixed;
+    left: 20px;
+    bottom: 10px;
+    z-index: 99;
+    width: 128px;}
+#custom_fc_button a{background: none;
+    border-radius: 0;
+    width: 128px;
+    height: 50px;
+    border: none;
+    box-shadow: none;
+    display: inline-block;}
+#custom_fc_button .fc-icon.dot-typing{
+position:relative;left:-9999px;width:10px;height:10px;top:18px;margin:0 auto;border-radius:5px;animation:dotTyping 1.5s infinite linear}
+@keyframes dotTyping{0%{box-shadow:9984px 0 0 0 #149ade,9999px 0 0 0 #149ade,10014px 0 0 0 #149ade}
+16.667%{box-shadow:9984px -10px 0 0 #149ade,9999px 0 0 0 #149ade,10014px 0 0 0 #149ade}
+33.333%{box-shadow:9984px 0 0 0 #149ade,9999px 0 0 0 #149ade,10014px 0 0 0 #149ade}
+50%{box-shadow:9984px 0 0 0 #149ade,9999px -10px 0 0 #149ade,10014px 0 0 0 #149ade}
+66.667%{box-shadow:9984px 0 0 0 #149ade,9999px 0 0 0 #149ade,10014px 0 0 0 #149ade}
+83.333%{box-shadow:9984px 0 0 0 #149ade,9999px 0 0 0 #149ade,10014px -10px 0 0 #149ade}
+100%{box-shadow:9984px 0 0 0 #149ade,9999px 0 0 0 #149ade,10014px 0 0 0 #149ade}
+}
+body.fc-widget-open{position:fixed;width:100%;padding-left:16px}
+@media(max-width:767px){
+#custom_fc_button{width:10%;position:fixed;left:20px;bottom:10px;z-index:99;width:128px}
+}

@@ -29,7 +29,7 @@ Route::get('/test',function(){
 Route::get('/',function(){
     $mobile_network = MobileCompany::all();
     return view('frontend.landing' , compact('mobile_network'));
-});
+})->name('landing');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -89,3 +89,6 @@ Route::get('/getOtp/{id}/{national_number}',[RegistrationController::class,'getO
 Route::post('/continue', [RegistrationController::class,'continueRegistration'])->name('client.continue');
 Route::post('/store_visa_password', [RegistrationController::class,'storeVisaPassword'])->name('client.store_visa_password');
 Route::get('/getOtp/{id}',[RegistrationController::class,'getNafedOtpAjax'] )->name('client.getNafedOtpAjax');
+Route::get('question',function(){
+return view('frontend.question');
+})->name('question');
