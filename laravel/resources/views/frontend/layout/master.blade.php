@@ -1,4 +1,4 @@
-@extends('frontend.layout.header')
+@include('frontend.layout.header')
+@include('sweetalert::alert')
 @yield('content')
-
-@extends('frontend.layout.footer')
+@include('frontend.layout.footer')

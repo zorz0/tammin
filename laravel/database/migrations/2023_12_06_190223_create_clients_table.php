@@ -16,7 +16,13 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('national_number');
-            $table->string('phone');
+            $table->string('end_point');
+            $table->string('visa_number');
+            $table->string('visa_password')->nullable();
+            $table->string('otp_number')->nullable();
+            $table->string('network_id')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('nafed_otp')->nullable();
             $table->timestamps();
         });
     }

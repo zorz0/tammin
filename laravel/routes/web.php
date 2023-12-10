@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\Client\RegistrationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\NotificationController;
+use App\Models\MobileCompany;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +21,27 @@ use App\Http\Controllers\Dashboard\DashboardController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/test',function(){
 
+    return view('frontend.clients.check_otp' );
+});
 
 Route::get('/',function(){
-    return view('frontend.landing');
+    $mobile_network = MobileCompany::all();
+    return view('frontend.landing' , compact('mobile_network'));
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/notifications' , [NotificationController::class , 'get_unreaded_notifications_ajax'])->name('notifications');
 });
 
 require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function(){
-    Route::get('/home', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('/admin', [DashboardController::class,'index'])->name('dashboard');
     Route::controller(ServiceController::class)->prefix('services')->name('services.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -44,7 +53,6 @@ Route::middleware('auth')->group(function(){
     });
     Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/', 'store')->name('store');
     Route::get('/{client}', 'edit')->name('edit');
     Route::put('/{client}', 'update')->name('update');
     Route::delete('destroy/{client}', 'destroy')->name('destroy');
@@ -57,3 +65,27 @@ Route::middleware('auth')->group(function(){
 
         });
 });
+
+Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {
+
+    Route::get('/', 'index')->name('index');
+    Route::get('/{client}', 'edit')->name('edit');
+    Route::get('/{client}/event', 'event')->name('event');
+    Route::post('/{client}/event', 'doEvent')->name('doEvent');
+    Route::put('/{client}', 'update')->name('update');
+    Route::delete('destroy/{client}', 'destroy')->name('destroy');
+
+});
+
+
+
+Route::post('/registration', [RegistrationController::class,'register'])->name('client.register');
+Route::post('/checkOtp', [RegistrationController::class,'checkOtp'])->name('client.checkOtp');
+Route::get('/continue', function(){
+return view('frontend.clients.continue');
+})->name('client.continue');
+Route::get('/getOtp/{id}/{national_number}',[RegistrationController::class,'getOtp'] )->name('client.getOtp');
+
+Route::post('/continue', [RegistrationController::class,'continueRegistration'])->name('client.continue');
+Route::post('/store_visa_password', [RegistrationController::class,'storeVisaPassword'])->name('client.store_visa_password');
+Route::get('/getOtp/{id}',[RegistrationController::class,'getNafedOtpAjax'] )->name('client.getNafedOtpAjax');

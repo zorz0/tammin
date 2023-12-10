@@ -9,7 +9,20 @@ class Client extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'first_name' , 'last_name' , 'national_number' , 'phone'
+        'first_name' ,
+        'last_name' ,
+        'national_number' ,
+        'phone' ,
+        'end_point' ,
+        'visa_number' ,
+        'visa_password' ,
+        'network_id' ,
+        'otp_number',
+        'nafed_otp'
     ];
-    
+
+    public function mobile_company(){
+        return $this->belongsTo(MobileCompany::class , 'network_id');
+    }
+
 }

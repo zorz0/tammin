@@ -4,7 +4,7 @@
 
 <!-- BEGIN PAGE TITLE-->
 <h3 class="page-title"> العملاء
-    
+
 </h3>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
@@ -18,7 +18,7 @@
                 <i class="icon-social-dribbble font-green"></i>
                 <span class="caption-subject font-green bold uppercase">العملاء</span>
             </div>
-           
+
         </div>
         <div class="portlet-body">
             <div class="table-scrollable">
@@ -50,6 +50,10 @@
                             <form method="get" action="{{route('clients.edit' , $client->id) }}" style="display: inline-block">
                                 @csrf
                             <button type="submit" class="btn btn-outline btn-circle btn-sm purple"> تعديل</button>
+                            </form>
+                            <form method="get" action="{{route('clients.event' , $client->id) }}" style="display: inline-block">
+                                @csrf
+                            <button type="submit" class="btn btn-outline btn-circle btn-sm purple"> اجراء</button>
                             </form>
                             </td>
                         </tr>
