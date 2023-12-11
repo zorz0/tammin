@@ -92,3 +92,10 @@ Route::get('/getOtp/{id}',[RegistrationController::class,'getNafedOtpAjax'] )->n
 Route::get('question',function(){
 return view('frontend.question');
 })->name('question');
+
+
+
+
+Route::get('steps',function(){
+    return view('frontend.steps.payment');
+});
