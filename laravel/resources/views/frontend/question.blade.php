@@ -4,10 +4,10 @@
 
 
   <!-- start first section -->
-  <section class="land-section padding-section">
-    <div class="container">
-        <div class="gredint-box">
-            <div class="title-box d-flex">
+  <section class="land-section padding-section ">
+    <div class="container " >
+        <div class="gredint-box  " style="padding-bottom: 9rem">
+            <div class="title-box d-flex ">
                 
                 <div class="left-image col-lg-3">
                     <img src="{{asset('frontend')}}/assets/images/success-page-right.svg" alt="" srcset="">

@@ -1,3 +1,19 @@
+let sidebarClose=document.getElementById('sidebar-close');
+let sidebarOpen=document.getElementById('sidebar-open'); 
+let sidebar=document.querySelector('.sidebar');
+console.log(sidebarOpen)
+sidebarOpen.addEventListener('click',function(){
+
+sidebar.style.display='block';
+})
+
+sidebarClose.addEventListener('click',function(){
+
+    sidebar.style.display='none';
+    })
+// 
+
+
 let tapcontant = document.querySelectorAll(".tab-contant")
 let taptitel = document.querySelectorAll(".tab-titel")
 // console.log(tapcontant,taptitel);
@@ -27,3 +43,5 @@ let taptitel = document.querySelectorAll(".tab-titel")
         })
 
     }
+
+   

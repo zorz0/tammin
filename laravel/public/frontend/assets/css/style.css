@@ -11,6 +11,7 @@
     --section-padding: 70px 0;
     --box-shadw: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
     --transition-duration: 0.3s;
+    --sidebar-color: #fafafa;
   }
 /* End Variables */
 /* Start Global Rules */
@@ -392,9 +393,52 @@ min-height: 15rem;
 }
 .accordion-collapse h6{
   margin-left:1rem ;
+  text-align: start;
+ 
+  min-height: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
 }
 .accordion-collapse .accordion-button {
   background-color: var(--section-color);
   margin-bottom: 1rem;
   
+}
+@media (max-width:1000px) {
+  .accordion-collapse h6{
+    font-size: 1rem;
+  }
+}
+
+
+/* sidebar */
+.sidebar{
+  width: 25rem;
+  z-index: 300;
+  top:0;
+  bottom:0;
+position: fixed;
+  background-color: var(--sidebar-color);
+display: none;
+transition: all 1s ease-in-out;
+}
+
+.sidebar ul li a img{
+  width: 2rem;
+  margin-left: .5rem;
+}
+
+#sidebar-close,
+#sidebar-open{
+ cursor: pointer;
+ 
+
+}
+.sidebar li{
+  margin: 0;
+
+}
+.sidebar li:focus,
+.sidebar li:hover{
+  background: linear-gradient(25deg,#276383,#fff 15%);
 }
