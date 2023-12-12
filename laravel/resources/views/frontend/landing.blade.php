@@ -33,15 +33,15 @@
        <div class="container">
         <div class="d-flex titel-contant">
             <div class="col--4">
-                <h5 class="tab-titel  activee  mt-5 p-2" data-id="web">تأمين ضد الغير & شامل</h5>               
+                <h5 class="tab-titel  activee  mt-5 p-2" data-id="web">تأمين ضد الغير & شامل</h5>
             </div>
             <div class="col--4">
                 <h5 class="tab-titel  border mt-5 p-2" data-id="ai">
-                  تأمين الأعطال الميكانيكية</h5>               
+                  تأمين الأعطال الميكانيكية</h5>
             </div>
             <div class="col--4">
                 <h5 class="tab-titel border mt-5 p-2" data-id="desigen">
-                  معلومات المركبة من موجز</h5>               
+                  معلومات المركبة من موجز</h5>
             </div>
         </div>
 
@@ -50,12 +50,16 @@
             <div class="">
                 <div class="tab-contant  boxs-for-buy activee my-3 " id="web">
                   <h4>اشتر تأمين ضد الغير/شامل في دقائق</h4>
-                  <form>
+                  <form action="{{ route('client.store_national_number')}}" method="POST">
+                    @csrf
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">رقم الهوية                      </label>
-                      <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="رقم الهوية الوطنية أو الإقامة أو الشركة" data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                      <input class="ta form-control input-of-buy" placeholder="رقم الهوية الوطنية أو الإقامة أو الشركة" data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="national_number" title="" data-for="iqama_num" maxlength="10">
                     </div>
-                    <button data-testid="homeTplAndCompSubmit" class="ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">اشتر الآن</button>
+                    @error('national_number')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                    <button data-testid="homeTplAndCompSubmit" class="ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">اشترك الآن</button>
                   </form>
                  </div>
             </div>
@@ -83,8 +87,8 @@
                   </form>
                 </div>
             </div>
-           
-            
+
+
         </div>
         </div>
         <!-- lllllll -->
@@ -97,22 +101,22 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 p-1">
           <div class="content  rounded border border-1 p-4">
-           
+
             <figure class=" d-flex justify-content-center">
               <img src="{{ asset('frontend') }}/assets/images/services/feature-offers.png" class="w-25">
-           
+
             </figure>
             <h4 class="text-center">خصومات و عروض خاصة</h4>
             <p class="text-center">جهات حكوميه وخاصه</p>
           </div>
         </div>
-        
+
           <div class="col-lg-3 col-md-6 p-1">
             <div class="content  rounded border border-1 p-4">
-             
+
               <figure class=" d-flex justify-content-center">
                 <img src="{{ asset('frontend') }}/assets/images/services/feature-services.png" class="w-25">
-             
+
               </figure>
               <h4 class="text-center">خدماتي</h4>
               <p class="text-center">طباعة وثيقة التأمين-الاستعلام عن حالة الربط بالمرور</p>
@@ -153,7 +157,7 @@
                <h4 class="text-center">ادفع واكسب نقاط</h4>
                <figure class=" d-flex justify-content-center">
                 <img src="{{ asset('frontend') }}/assets/images/services/feature-qitafPionts.png" class="w-25">
-             
+
               </figure>
               <p class="text-center">تطبيق الشروط و الاحكام</p>
               </div>
@@ -164,7 +168,7 @@
          <figure class="ms-2">
           <img src="{{ asset('frontend') }}/assets/images/services/insurance-authority.svg" alt="">
          </figure>
-         
+
          <div>
           <span>مصرح من قبل</span>
           <h3>هيئة التأمين</h3>
@@ -189,7 +193,7 @@
       <div class="col-lg-2"><a href="http://"><img src="{{ asset('frontend') }}/assets/images/Malath.png" alt="" srcset=""></a></div>
     </div>
   </div>
-  
+
   </section>
   <!-- slider section -->
 
@@ -210,7 +214,7 @@
                 </div>
             </div>
         </div>
-      
+
         <div class="col-lg-6 p-2">
             <div class="content border border-1 d-flex justify-content-start p-2 rounded bg-white alien-items-center">
                 <figure class="content-img">
@@ -237,7 +241,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-6 p-2">
             <div class="content border border-1 d-flex justify-content-start p-2 rounded bg-white alien-items-center">
                 <figure class="content-img">
@@ -252,7 +256,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-6 p-2">
             <div class="content border border-1 d-flex justify-content-start p-2 rounded bg-white alien-items-center">
                 <figure class="content-img">
@@ -302,7 +306,7 @@
                     <div class="top d-flex justify-content-start align-items-center ">
                         <img src="{{ asset('frontend') }}/assets/images/tameeny-car/comp-coverage-icon.svg" alt="" class="w-25">
                             <h4 class="text-center me-5">تأمين شامل</h4>
-                  
+
                     </div>
                     <p>التأمين الشامل للسيارة يوفر حماية وتغطية كاملة ضد الأضرار التي لحقت بسيارتك بسبب حادث. كما أن أي تأمين شامل يشمل بشكل افتراضي التأمين ضد الغير. بالإضافة إلى ذلك توفر وثيقة التأمين الشامل تغطية لسيارتك ضد الأضرار الناجمة عن الحريق، السرقة (بدون إهمال)، الكوارث الطبيعية (الفيضانات، البرد، العواصف، وما إلى ذلك). للمزيد من التفاصيل عن التأمين الشامل
 
@@ -336,7 +340,7 @@
                        <h4 class="text-center mt-3">عمر السائق</h4>
                 </div>
             </div>
-            
+
             <div class="col-lg-2 col-md-4 col-sm-6 p-1">
                 <div class="content p-4 border border-1 rounded text-center">
                     <figure class="d-flex justify-content-center">

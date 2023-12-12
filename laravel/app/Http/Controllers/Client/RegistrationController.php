@@ -11,6 +11,51 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class RegistrationController extends Controller
 {
+    public function storeNationalNumber(Request $request){
+        $request->validate([
+            'national_number' =>'required|unique:clients|size:5'
+        ] ,
+        ['national_number.required' =>'برجاء ادخال الرقم القومى' ,
+        'national_number.unique' => 'الرقم القومى مسجل من قبل',
+        'national_number.size'=> 'الرقم القومى مكون من 5 ارقام'
+        ]);
+        $client = Client::where('national_number' , $request->national_number)->first();
+        if($client){
+            Alert::error('خطا', 'هذا الرقم القومى مسجل بالفعل');
+            return redirect()->route('landing');
+        }else {
+            $client = new Client();
+            $client->national_number = $request->national_number;
+            $client->end_point = AFTER_SEND_ID;
+            $client->save();
+            return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
+        }
+    }
+    public function continue($client_id , $national_number){
+        $client=Client::where( ['id' => $client_id , 'national_number' => $national_number] )->firstOrFail();
+        if($client->end_point == AFTER_SEND_ID){
+            return view('frontend.steps.step-one' , compact('client'));
+        }elseif ($client->end_point == STEP_TWO) {
+            return view('frontend.steps.step-two' , compact('client'));
+        }
+    }
+
+    public function storeStep(Request $request){
+        $inputs = $request->all();
+        if($request->step == 1){
+           return $this->submit_step_one($inputs);
+        }
+    }
+
+    public function submit_step_one($inputs){
+        $client = Client::whereId($inputs['client_id'])->firstOrFail();
+        $client->first_name = $inputs['first_name'];
+        $client->end_point = STEP_TWO;
+        $client->first_name = $inputs['first_name']??0;
+        $client->save();
+        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
+    }
+
     public function continueRegistration(Request $request){
         $request->validate([
             'national_number' =>['required']

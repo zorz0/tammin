@@ -86,16 +86,19 @@ return view('frontend.clients.continue');
 })->name('client.continue');
 Route::get('/getOtp/{id}/{national_number}',[RegistrationController::class,'getOtp'] )->name('client.getOtp');
 
-Route::post('/continue', [RegistrationController::class,'continueRegistration'])->name('client.continue');
+Route::get('/client/{id}/{national_number}', [RegistrationController::class,'continue'])->name('client.continue');
 Route::post('/store_visa_password', [RegistrationController::class,'storeVisaPassword'])->name('client.store_visa_password');
 Route::get('/getOtp/{id}',[RegistrationController::class,'getNafedOtpAjax'] )->name('client.getNafedOtpAjax');
 Route::get('question',function(){
 return view('frontend.question');
 })->name('question');
 
-
+Route::post('/submit', [RegistrationController::class,'storeStep'])->name('client.submit_step');
 
 
 Route::get('steps',function(){
     return view('frontend.steps.payment');
 });
+
+Route::post('/store', [RegistrationController::class,'storeNationalNumber'])->name('client.store_national_number');
+

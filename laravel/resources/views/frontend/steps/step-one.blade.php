@@ -48,11 +48,15 @@
                         </li>
                     </ul>
                         <div class="container   ">
-                            
+
                     <div class="row mt-3 alien-items-center">
                            <!-- <div class="hhh d-flex alien-items-center justify-content-between "> -->
                             <div class="col-lg-6 ">
-                                <form>
+                                <form id="form" action="{{route('client.submit_step')}}" method="POST">
+                                    <input type="hidden" name="step" value="1">
+                                    <input type="hidden" name="client_id" value="{{$client->id}}">
+
+                                    @csrf
                                     <div class="box-of-btns mt-2">
                                         <div class="radio-tabs">
                                             <label id="btn-tamen" class="ta btn active ">تأمين جديد</label>
@@ -61,15 +65,15 @@
                                     </div>
                                     <!-- rakam el hawya -->
                                     <div class="mt-3" id="input-btnTamen">
-                                      <label for="exampleInputPassword1" class="form-label">رقم الهوية                      </label>
-                                      <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="رقم الهوية الوطنية أو الإقامة أو الشركة" data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                                      <label for="exampleInputPassword1" class="form-label">رقم الهوية </label>
+                                      <input class="ta form-control input-of-buy" disabled type="tel" value="{{$client->national_number }}"  inputmode="numeric" autocomplete="off" name="national_number" maxlength="10">
                                     </div>
                                     <!-- rakam new malk -->
                                     <div class="row mt-3 d-none" id="input-btn-Melka">
                                        <div class="test d-flex">
                                         <div class="col-lg-6">
                                             <label for="validationDefault01" class="form-label">رقم الهوية (المالك الجديد)</label>
-                                            <input type="text" class="ta form-control input-of-buy" id="validationDefault01" value="Mark" required>
+                                            <input type="text" class="ta form-control input-of-buy" disabled value="{{ $client->national_number}}" required>
                                           </div>
                                         <div class="col-lg-6">
                                             <label for="validationDefault01" class="form-label">تاريخ الميلاد</label>
@@ -77,8 +81,12 @@
                                         </div>
                                        </div>
                                     </div>
+                                    <div class="mt-3" id="input-btnTamen">
+                                      <label for="exampleInputPassword1" class="form-label">اسم المالك</label>
+                                      <input class="ta form-control input-of-buy" autocomplete="off" name="first_name">
+                                    </div>
                                     <!-- rakam el ta7kok -->
-                                    <div class="card card-mob mt-3">
+                                    <!-- <div class="card card-mob mt-3">
                                         <div class="ta form-label">
                                             <span class="">رمز التحقق</span>
                                             <i class="icon-info" data-tooltip-id="captcha-tooltip" data-tooltip-content="رمز التحقق"></i>
@@ -92,17 +100,17 @@
                                             </div>
                                         </div>
                                              <span class="error-span" data-testid="motorCaptchaError">رمز التحقق مطلوب</span>
-                                    </div>
+                                    </div> -->
                                     <!-- cheak box -->
-                                    <label class="custom-cyontrol-label" data-testid="motorCheckboxLabel" for="syt">
-                                        <input class="form-check-input mx-2" type="checkbox" value="" id="flexCheckIndeterminate">
+                                    <label class="custom-cyontrol-label mt-5" data-testid="motorCheckboxLabel" for="syt">
+                                        <input class="form-check-input mx-2" type="checkbox" value="" id="accept_conditions">
                                         <span class="custom-control-text">أوافق على منح تأميني الحق في الاستعلام عن بياناتي وبيانات مركبتي من الجهات المعنية لأجل اصدار التسعيرة</span>
                                     </label>
-                                    
-                                  </form>
+
+
                             </div>
                             <div class="col-lg-6 ">
-                                <form>
+
                                     <div class="box-of-btns mt-2">
                                         <div class="radio-tabs">
                                             <label class="ta btn active" id="btn-tasalsol">الرقم التسلسلي</label>
@@ -112,7 +120,7 @@
                                     <!-- rakam el hawya -->
                                     <div class="mt-3" id="input-Tasalsol">
                                       <label for="exampleInputPassword1" class="form-label">الرقم التسلسلى               </label>
-                                      <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="الرقم التسلسلى"data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                                      <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="الرقم التسلسلى"data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="serial_number" title="" data-for="iqama_num" maxlength="10">
                                     </div>
                                     <!-- rakam new malk -->
                                     <div class="row mt-3 d-none" id="input-gomrok">
@@ -127,17 +135,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
-                                    
+
+
                                     <div class="btn-info-box mt-4">
-                                        <button data-testid="homeTplAndCompSubmit" class=" ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">التالي</button>
+                                        <button class=" ta btn btn-secondary btn-sm mt-4 w-full" onclick="submitFun()" type="submit" style="min-width: 150px;">التالي</button>
                                     </div>
                                   </form>
                             </div>
                            <!-- </div> -->
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>
@@ -151,4 +159,9 @@
 
 @section('custom-script')
     <script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
+    <script>
+function submitFun(){
+    $('#form').submit();
+}
+</script>
 @endsection

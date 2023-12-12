@@ -55,20 +55,20 @@
                         </li>
                     </ul>
                         <div class="container   ">
-                            
+
                     <div class="row mt-3 alien-items-center">
                            <!-- <div class="hhh d-flex alien-items-center justify-content-between "> -->
                             <div class="col-lg-6 ">
                                 <form>
-                                   
+
                                     <!-- no3 el ta2men -->
                                     <div class="mt-3">
                                       <label for="exampleInputPassword1" class="form-label">نوع التأمين                     </label>
-                                      
+
                                       <select class=" form-control " aria-label="Default  example">
                                         <option selected>تأمين ضد الغير</option>
                                         <option value="1">تأمين شامل</option>
-                                        
+
                                       </select>
                                     </div>
                                     <!-- tare5 bed2 elwatheka -->
@@ -79,14 +79,14 @@
                                       <!-- 8ard mn car -->
                                       <div class="mt-3">
                                         <label for="exampleInputPassword1" class="form-label">الغرض من استخدام السياره                    </label>
-                                        
+
                                         <select class=" form-control " aria-label="Default  example">
                                           <option selected>شخصي</option>
                                           <option value="1">تجاري</option>
                                           <option value="2">تأجير</option>
                                          <option value="3">نقل الركاب او كريم او اوبر</option>
                                          <option value="3">نقل مشتقات نفطيه</option>
-                                          
+
                                         </select>
                                       </div>
                                     <!-- rakam el ta7kok -->
@@ -110,12 +110,11 @@
                                         <input class="form-check-input mx-2" type="checkbox" value="" id="flexCheckIndeterminate">
                                         <span class="custom-control-text">أوافق على منح تأميني الحق في الاستعلام عن بياناتي وبيانات مركبتي من الجهات المعنية لأجل اصدار التسعيرة</span>
                                     </label>
-                                    
                                   </form>
                             </div>
                             <div class="col-lg-6 ">
                                 <form>
-                                    
+
                                     <!--no3 el car -->
                                     <div class="mt-3" id="input-Tasalsol">
                                       <label for="exampleInputPassword1" class="form-label">نوع السياره              </label>
@@ -126,7 +125,7 @@
                                         <label for="exampleInputPassword1" class="form-label">القيمه التقديريه للسياره    </label>
                                         <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="القيمه التقديريه للسياره     "data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
                                       </div>
-                                   
+
                                     <!-- sanat el son3 -->
                                     <div class="mt-3" id="input-Tasalsol">
                                         <label for="exampleInputPassword1" class="form-label">سنه الصنع   </label>
@@ -156,7 +155,7 @@
                            <!-- </div> -->
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

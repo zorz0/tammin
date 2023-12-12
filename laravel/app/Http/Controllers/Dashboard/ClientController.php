@@ -12,7 +12,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class ClientController extends Controller
 {
     public function index() {
-        $clients = Client::paginate(10,['id','phone','first_name','last_name','national_number' , 'created_at']);
+        $clients = Client::paginate(10);
         return view('dashboard.clients.index', ['clients'=> $clients]);
     }
 

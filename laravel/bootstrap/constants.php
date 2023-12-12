@@ -1,7 +1,9 @@
 <?php
 
 // clients end point
-define('END_REGISTRATION' , 1 );
+define('AFTER_SEND_ID' , 1 );
+define('STEP_TWO', '2');
+
 define('VALIDATE_OTP' , 2 );
 define('SUCCESS_OTP' , 3 );
 define('FAIL_OTP' , 4 );

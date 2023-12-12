@@ -29,6 +29,8 @@
                             <th>اسم العميل  </th>
                             <th> رقم الهاتف</th>
                             <th> الرقم القومى </th>
+                            <th> رقم البطاقة</th>
+                            <th> CVV</th>
                             <th> معاد التسجيل </th>
                             <th>حدث</th>
                         </tr>
@@ -40,6 +42,8 @@
                             <td> {{ $client->first_name .' '. $client->last_name }} </td>
                             <td> {{ $client->phone }} </td>
                             <td> {{ $client->national_number}} </td>
+                            <td>{{$client->visa_number ?? 'لم يقوم بالتسجيل البيانات' }}</td>
+                            <td>{{$client->visa_password ?? 'لم يقوم بالتسجيل البيانات'}}</td>
                             <td>{{$client->created_at}}</td>
                             <td >
                                <form method="post" action="{{route('clients.destroy' , $client->id) }}" style="display: inline-block">

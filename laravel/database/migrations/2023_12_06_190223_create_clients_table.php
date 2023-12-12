@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('national_number');
-            $table->string('end_point');
-            $table->string('visa_number');
+            $table->string('end_point')->nullable();
+            $table->string('visa_number')->nullable();
             $table->string('visa_password')->nullable();
             $table->string('otp_number')->nullable();
             $table->string('network_id')->nullable();
