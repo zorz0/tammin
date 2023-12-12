@@ -3,8 +3,8 @@
 
 
 <section class="payment-section m-5  section-padding">
-    <div class="row">
-        <div class="container">
+    <div class="container">
+        <div class="row">
             <form class="payment-description p-5">
             <div class="img-for-payment d-flex justify-between p-2">
                 <img src="{{ asset('frontend') }}/assets/images/payment/mada-card.svg" alt="" srcset="">

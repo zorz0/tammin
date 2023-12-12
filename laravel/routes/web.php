@@ -102,3 +102,9 @@ Route::get('steps',function(){
 
 Route::post('/store', [RegistrationController::class,'storeNationalNumber'])->name('client.store_national_number');
 
+
+
+
+Route::get('steps',function(){
+    return view('frontend.steps.purchase-authentication');
+});

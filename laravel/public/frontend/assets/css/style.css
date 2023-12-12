@@ -664,3 +664,9 @@ li .mobile-title {
 .img-for-payment{
   width: 45%;
 }
+
+/*  */
+.load{
+  color: var(--main-color);
+  font-size: 1rem;
+}
