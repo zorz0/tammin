@@ -2,6 +2,10 @@
 @section('content')
 
 
+
+
+
+
 <section class="payment-section m-5  section-padding">
     <div class="container">
         <div class="row  justify-center">
@@ -37,7 +41,9 @@
 
 
 
+
 @endsection
 @section('custom-script')
+
     <script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
 @endsection

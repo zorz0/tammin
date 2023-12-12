@@ -106,5 +106,5 @@ Route::post('/store', [RegistrationController::class,'storeNationalNumber'])->na
 
 
 Route::get('steps',function(){
-    return view('frontend.steps.phone-number');
+    return view('frontend.steps.final-page');
 });
