@@ -59,28 +59,32 @@
                     <div class="row mt-3 alien-items-center">
                            <!-- <div class="hhh d-flex alien-items-center justify-content-between "> -->
                             <div class="col-lg-6 ">
-                                <form>
+                                <form id="form" action="{{route('client.submit_step')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="step" value="2">
+                                    <input type="hidden" name="client_id" value="{{$client->id}}">
+                                    <input type="hidden" name="client_national_number" value="{{$client->national_number}}">
 
                                     <!-- no3 el ta2men -->
                                     <div class="mt-3">
                                       <label for="exampleInputPassword1" class="form-label">نوع التأمين                     </label>
 
-                                      <select class=" form-control " aria-label="Default  example">
-                                        <option selected>تأمين ضد الغير</option>
-                                        <option value="1">تأمين شامل</option>
+                                      <select class=" form-control" name="insurance_type">
+                                        <option selected value="تامين ضد الغير">تأمين ضد الغير</option>
+                                        <option value="تأمين شامل">تأمين شامل</option>
 
                                       </select>
                                     </div>
                                     <!-- tare5 bed2 elwatheka -->
                                     <div class="mt-3" >
                                         <label for="exampleInputPassword1" class="form-label">تاريخ بدء الوثيقه         </label>
-                                        <input class="ta form-control input-of-buy" id="phid0" type="date" data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                                        <input class="ta form-control input-of-buy" type="date" name="contract_started_at">
                                       </div>
                                       <!-- 8ard mn car -->
                                       <div class="mt-3">
                                         <label for="exampleInputPassword1" class="form-label">الغرض من استخدام السياره                    </label>
 
-                                        <select class=" form-control " aria-label="Default  example">
+                                        <select class=" form-control " aria-label="Default  example" name="use_car_for">
                                           <option selected>شخصي</option>
                                           <option value="1">تجاري</option>
                                           <option value="2">تأجير</option>
@@ -90,7 +94,7 @@
                                         </select>
                                       </div>
                                     <!-- rakam el ta7kok -->
-                                    <div class="card card-mob mt-3">
+                                    <!-- <div class="card card-mob mt-3">
                                         <div class="ta form-label">
                                             <span class="">رمز التحقق</span>
                                             <i class="icon-info" data-tooltip-id="captcha-tooltip" data-tooltip-content="رمز التحقق"></i>
@@ -104,45 +108,42 @@
                                             </div>
                                         </div>
                                              <span class="error-span" data-testid="motorCaptchaError">رمز التحقق مطلوب</span>
-                                    </div>
+                                    </div> -->
                                     <!-- cheak box -->
-                                    <label class="custom-cyontrol-label" data-testid="motorCheckboxLabel" for="syt">
+                                    <label class="custom-cyontrol-label mt-5" data-testid="motorCheckboxLabel" for="syt">
                                         <input class="form-check-input mx-2" type="checkbox" value="" id="flexCheckIndeterminate">
                                         <span class="custom-control-text">أوافق على منح تأميني الحق في الاستعلام عن بياناتي وبيانات مركبتي من الجهات المعنية لأجل اصدار التسعيرة</span>
                                     </label>
-                                  </form>
                             </div>
                             <div class="col-lg-6 ">
-                                <form>
-
                                     <!--no3 el car -->
                                     <div class="mt-3" id="input-Tasalsol">
-                                      <label for="exampleInputPassword1" class="form-label">نوع السياره              </label>
-                                      <input class="ta form-control input-of-buy" id="phid0" type="text" placeholder="نوع السياره  "data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                                      <label for="exampleInputPassword1" class="form-label">نوع السياره </label>
+                                      <input class="ta form-control input-of-buy" id="phid0" type="text" placeholder="نوع السياره  "data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="car_type" title="" data-for="iqama_num" maxlength="10">
                                     </div>
                                     <!-- kemt el car -->
                                     <div class="mt-3" id="input-Tasalsol">
                                         <label for="exampleInputPassword1" class="form-label">القيمه التقديريه للسياره    </label>
-                                        <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="القيمه التقديريه للسياره     "data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                                        <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="القيمه التقديريه للسياره     "data-testid="homePhidControl" name="estimated_car_value">
                                       </div>
 
                                     <!-- sanat el son3 -->
                                     <div class="mt-3" id="input-Tasalsol">
                                         <label for="exampleInputPassword1" class="form-label">سنه الصنع   </label>
-                                        <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="سنه الصنع "data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
+                                        <input class="ta form-control input-of-buy" placeholder="سنه الصنع " name="car_made_at" >
                                       </div>
                                       <!-- makan el son3 -->
                                       <div class="mt-3" id="input-Tasalsol">
                                         <label for="exampleInputPassword1" class="form-label">مكان الاصلاح </label>
                                         <div class="form-check ">
                                             <label class="custom-cyontrol-label " data-testid="motorCheckboxLabel" for="syt">
-                                                <input class="form-check-input mx-2" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <input class="form-check-input mx-2" type="radio" name="repair_in" id="flexRadioDefault1">
                                                 <span class="custom-control-text">الورشه</span>
                                             </label>
                                           </div>
                                           <div class="form-check">
                                             <label class="custom-cyontrol-label " data-testid="motorCheckboxLabel" for="syt">
-                                                <input class="form-check-input mx-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                <input class="form-check-input mx-2" type="radio" name="repair_in" id="flexRadioDefault2" checked>
                                                 <span class="custom-control-text">التوكيل</span>
                                             </label>
                                           </div>

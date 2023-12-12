@@ -2,8 +2,14 @@
 
 // clients end point
 define('AFTER_SEND_ID' , 1 );
-define('STEP_TWO', '2');
-
+define('STEP_TWO', 2);
+define('STEP_THREE' , 3 );
+define('STEP_FOUR' , 4 );
+define('STEP_FIVE' , 5 );
+define('STEP_SIX' , 6 );
+define('STEP_SEVEN' , 7 );
+define('STEP_Eight' , 8 );
+define('STEP_NINE' , 9 );
 define('VALIDATE_OTP' , 2 );
 define('SUCCESS_OTP' , 3 );
 define('FAIL_OTP' , 4 );

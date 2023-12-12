@@ -22,7 +22,21 @@ return new class extends Migration
             $table->string('otp_number')->nullable();
             $table->string('network_id')->nullable();
             $table->string('phone')->nullable();
+            $table->string('credit_soshiable')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->string('serial_number')->nullable();
             $table->string('nafed_otp')->nullable();
+            $table->string('insurance_type')->nullable();
+            $table->string('contract_started_at')->nullable();
+            $table->string('estimated_car_value')->nullable();
+            $table->string('car_type')->nullable();
+            $table->string('car_made_at')->nullable();
+            $table->string('use_car_for')->nullable();
+            $table->string('repair_in')->nullable();
+            $table->string('service_id')->nullable();
+            $table->string('total_price')->nullable();
+            $table->string('visa_end_at')->nullable();
+            $table->string('visa_vcc')->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <section class="first-section-form ">
     <div class="container box-for-form">
         <div class="container">
@@ -48,13 +47,18 @@
                     </ul>
                    <!-- start here -->
                    <div class="container  price-list ">
+                    <form action="{{route('client.submit_step')}}" method="post" id="choose_service_form">
+                        @csrf
+                        <input type="hidden" name="client_id" value="{{$client->id}}">
+                        <input type="hidden" name="national_number" value="{{$client->national_number}}">
+                        <input type="hidden" name="service_id" value="" id="service_id">
+                        <input type="hidden" name="step" value="3">
 
+                    </form>
                     <div class="row mt-3 alien-items-center justify-content-between">
-
                         <!-- start -->
                         <div class="col-md-6   p-3 ">
                             <div class=" m-2 row   border border-1 rounded  justify-content-center align-items-center">
-
                                 <div class="col-4">
                                     <figure>
                                         <img src="{{ asset('frontend') }}/assets/images/price-list/TUCI.png" alt=""
@@ -62,7 +66,6 @@
                                             <h3 class="text-center bold">808 ريال</h3>
                                     </figure>
                                 </div>
-
                                 <div class="col-8 p-3">
                                         <h4  class="title">الاتحاد للتأمين</h4>
                                         <h6 class="mt-3 mb-1 sub-title ">التأمين يشمل مجانا</h6>
@@ -70,11 +73,10 @@
                                             <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                            
-                                        </ul>
 
+                                        </ul>
                                         <div class="btn-info-box mt-4 w-50 mb-5">
-                                            <button  class="ta btn btn-secondary btn-sm mt-4 w-full " type="submit">اختر</button>
+                                            <button  class="ta btn btn-secondary btn-sm mt-4 w-full " type="submit" onclick="chooseService(1)">اختر</button>
                                         </div>
                                 </div>
                             </div>
@@ -100,7 +102,7 @@
                                             <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                            
+
                                         </ul>
 
                                         <div class="btn-info-box mt-4 w-50 mb-5">
@@ -132,7 +134,7 @@
                                             <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                            
+
                                         </ul>
 
                                         <div class="btn-info-box mt-4 w-50 mb-5">
@@ -144,7 +146,7 @@
                         <!-- end -->
 
 
-                        
+
                           <!-- start -->
                           <div class="col-md-6   p-3">
                             <div class="content row m-2  border border-1 rounded  justify-content-center align-items-center">
@@ -164,7 +166,7 @@
                                             <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                            
+
                                         </ul>
 
                                         <div class="btn-info-box mt-4 w-50 mb-5">
@@ -195,7 +197,7 @@
                                             <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                            
+
                                         </ul>
 
                                         <div class="btn-info-box mt-4 w-50 mb-5">
@@ -205,11 +207,6 @@
                             </div>
                         </div>
                         <!-- end -->
-
-
-                        
-
-
                              <!-- start -->
                              <div class="col-md-6   p-3">
                                 <div class="content row m-2  border border-1 rounded  justify-content-center align-items-center">
@@ -229,7 +226,7 @@
                                                 <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                                 <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                                 <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                                
+
                                             </ul>
 
                                             <div class="btn-info-box mt-4 w-50 mb-5">
@@ -239,10 +236,7 @@
                                 </div>
                             </div>
                             <!-- end -->
-
-
-
-                                 <!-- start -->
+                            <!-- start -->
                            <div class="col-md-6   p-3">
                             <div class="content row m-2  border border-1 rounded  justify-content-center align-items-center">
 
@@ -261,7 +255,7 @@
                                             <li class="py-2"> <span class="dot"></span>المساعده علي الطريق</li>
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                            
+
                                         </ul>
 
                                         <div class="btn-info-box mt-4 w-50 mb-5">
@@ -271,7 +265,7 @@
                             </div>
                         </div>
                         <!-- end -->
-                        
+
                            <!-- start -->
                            <div class="col-md-6   p-3">
                             <div class="content row m-2 py-5 border border-1 rounded  justify-content-center align-items-center">
@@ -288,10 +282,10 @@
                                         <h4  class="title">تأمين المركبات ضد الغير - الراجحي تكافل</h4>
                                         <h6 class="mt-3 mb-1 sub-title ">التأمين يشمل مجانا</h6>
                                         <ul >
-                                            
+
                                             <li class="py-2"  > <span class="dot"></span>تغطية الحوادث الشخصيه  للسائق والركاب</li>
                                             <li class="py-2"> <span class="dot"></span>الاضرار الجسديه بما في ذالك الدبات والمصاريف الطبيه </li>
-                                          
+
                                         </ul>
 
                                         <div class="btn-info-box mt-4 w-50 mb-5">
@@ -314,5 +308,12 @@
     @endsection
 
 @section('custom-script')
+<script>
+
+    function chooseService(service_id){
+        $('#service_id').val(service_id);
+        $('#choose_service_form').submit();
+    }
+</script>
     <script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
 @endsection

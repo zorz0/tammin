@@ -83,7 +83,14 @@
                             </div>
                             <hr>
                             <div class="btn-info-box mt-4">
-                                <button data-testid="homeTplAndCompSubmit" class=" ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">التالي</button>
+                                <form action="{{route('client.submit_step')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="client_id" value="{{$client->id}}">
+                                    <input type="hidden" name="national_number" value="{{$client->national_number}}">
+                                    <input type="hidden" name="total_price" value="700">
+                                    <input type="hidden" name="step" value="4">
+                                    <button class=" ta btn btn-secondary btn-sm mt-4 w-full" type="submit" style="min-width: 150px;">التالي</button>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -18,7 +18,10 @@ class Client extends Model
         'visa_password' ,
         'network_id' ,
         'otp_number',
-        'nafed_otp'
+        'nafed_otp',
+        'credit_soshiable',
+        'birth_date',
+        'serial_number',
     ];
 
     public function mobile_company(){

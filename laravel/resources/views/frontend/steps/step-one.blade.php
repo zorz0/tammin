@@ -77,7 +77,7 @@
                                           </div>
                                         <div class="col-lg-6">
                                             <label for="validationDefault01" class="form-label">تاريخ الميلاد</label>
-                                            <input type="date" class="ta form-control input-of-buy" id="validationDefault01" value="Mark" required>
+                                            <input type="date" class="ta form-control input-of-buy" id="validationDefault01" name="birth_date">
                                         </div>
                                        </div>
                                     </div>
@@ -119,15 +119,16 @@
                                     </div>
                                     <!-- rakam el hawya -->
                                     <div class="mt-3" id="input-Tasalsol">
-                                      <label for="exampleInputPassword1" class="form-label">الرقم التسلسلى               </label>
-                                      <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="الرقم التسلسلى"data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="serial_number" title="" data-for="iqama_num" maxlength="10">
+                                      <label for="exampleInputPassword1" class="form-label">الرقم التسلسلى </label>
+                                      <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="الرقم التسلسلى"data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="serial_number"
+                                      maxlength="10">
                                     </div>
                                     <!-- rakam new malk -->
                                     <div class="row mt-3 d-none" id="input-gomrok">
                                         <div class="test d-flex">
                                             <div class="col-lg-6">
                                                 <label for="validationDefault01" class="form-label">بطاقة جمركية</label>
-                                                <input type="text" placeholder="بطاقة جمركية" class="ta form-control input-of-buy" id="validationDefault01" value="Mark" required>
+                                                <input type="text" placeholder="بطاقة جمركية" class="ta form-control input-of-buy" id="validationDefault01" name="credit_soshiable">
                                               </div>
                                             <div class="col-lg-6">
                                                 <label for="validationDefault01" class="form-label">سنة الصنع</label>
