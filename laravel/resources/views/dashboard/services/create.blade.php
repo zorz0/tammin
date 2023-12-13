@@ -17,7 +17,7 @@
             </div>
             <div class="portlet-body">
                 <!-- BEGIN FORM-->
-                <form action="{{ route('services.store') }}" method="post" id="form_sample_3" class="form-horizontal" novalidate="novalidate">
+                <form action="{{ route('services.store') }}" method="post" id="form_sample_3" class="form-horizontal" novalidate="novalidate"  enctype="multipart/form-data">
                     @csrf
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
@@ -44,20 +44,36 @@
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-
-
-
                         <div class="form-group">
-                            <label class="control-label col-md-3">وصف الخدمه
-                            <span class="required" aria-required="true"> * </span>
+                            <label class="control-label col-md-3">الصوره
+                                <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <textarea name="description" id="" class="form-control" cols="1" rows="10"></textarea>
-                            </div>
+                                <input type="file" name="image" data-required="1" class="form-control">
+                            @error('image')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
-                        @error('description')
-                        <small class="text-danger">{{ $message }}</small>
-                        @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label>مميزات الخدمه</label>
+                            <div class=" control-label col-md-3">
+                               @foreach ($features as $feature  )
+                               <label class="mt-checkbox mt-checkbox-outline"> {{ $feature->name }}
+                                <input type="checkbox" value="{{ $feature->id }}" name="feature_id[]" >
+                                <span></span>
+                            </label>
+                                   
+                               @endforeach
+                               
+                            </div>
+
+                            @error('feature_id')
+                            <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                      
                     </div>
                     <div class="form-actions">
                         <div class="row">

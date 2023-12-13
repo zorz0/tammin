@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Client\RegistrationController;
+use App\Models\MobileCompany;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\FeatureController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Dashboard\ClientController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\Client\RegistrationController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\NotificationController;
-use App\Models\MobileCompany;
-use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,16 @@ Route::middleware('auth')->group(function(){
         Route::get('/{service}', 'edit')->name('edit');
         Route::put('/{service}', 'update')->name('update');
         Route::delete('destroy/{service}', 'destroy')->name('destroy');
+
+    });
+
+    Route::controller(FeatureController::class)->prefix('features')->name('features.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/{feature}', 'edit')->name('edit');
+        Route::put('/{feature}', 'update')->name('update');
+        Route::delete('destroy/{feature}', 'destroy')->name('destroy');
 
     });
     Route::controller(ClientController::class)->prefix('clients')->name('clients.')->group(function () {

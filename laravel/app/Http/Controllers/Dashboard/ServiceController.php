@@ -2,48 +2,69 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreServiceRequest;
+use App\Models\Feature;
 use App\Models\Service;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Requests\StoreServiceRequest;
 
 class ServiceController extends Controller
 {
-    public function index(){
-        $services = Service::paginate(1,['id','name','price','description']);
+    public function index()
+    {
+        $services = Service::paginate(1, ['id', 'name', 'price', 'image']);
         return view('dashboard.services.index', ['services' => $services]);
     }
 
-    public function create(){
-        return view('dashboard.services.create');
+    public function create()
+    {
+        $features = Feature::get(['id', 'name']);
+        return view('dashboard.services.create', compact('features'));
     }
 
-    public function store(StoreServiceRequest $request){
-        $inputs =  $request->all();
-        $service = new Service();
-        $service->name = $inputs['name'];
-        $service->price = $inputs['price'];
-        $service->description = $inputs['description'];
-        $service->save();
-        Alert::info(' الخدمات', 'تم حفظ الخدمة بنجاح');
+    public function store(StoreServiceRequest $request)
+    {
+
+       
+
+        DB::transaction(function () use ( $request): void {
+            $service = Service::create([
+                'name' => $request->name,
+                'price' => $request->price,
+                'image' => uploadImage($request->image, Service::PATH)
+            ]);
+        
+            $service->features()->attach($request->feature_id);
+        });
+
+
+        // if ($service) {
+            Alert::success("تم اضافة الخدمه  بنجاح", "تم");
+        // } else {
+
+        //     Alert::error('خطا', "لم يتم الحفظ");
+        // }
         return redirect()->route('services.index');
     }
 
-    public function edit($service_id){
-        $service = Service::whereId($service_id)->firstOrFail();
-        return view('dashboard.services.edit' , ['service' => $service]);
+    public function edit(Service $service)
+    {
+        $feature = Feature::get(['id', 'name']);
+        return view('dashboard.services.edit', compact('features','service'));
     }
-    public function update(StoreServiceRequest $request){
+    public function update(StoreServiceRequest $request)
+    {
         $inputs = $request->all();
-        $service =Service::whereId($inputs['id'])->update(['name'=>$inputs['name'] , 'description'=> $inputs['description'] , 'price' => $inputs['price']]);
+        $service = Service::whereId($inputs['id'])->update(['name' => $inputs['name'], 'description' => $inputs['description'], 'price' => $inputs['price']]);
         Alert::info(' الخدمات', 'تم تعديل الخدمة بنجاح');
         return redirect()->route('services.index');
     }
 
-    public function destroy(Service $service) {
+    public function destroy(Service $service)
+    {
         $service->delete();
         Alert::info(' الخدمات', 'تم حذف الخدمة بنجاح');
         return redirect()->route('services.index');
     }
-
 }

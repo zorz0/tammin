@@ -57,6 +57,35 @@
                {{--services end  --}}
 
 
+
+   {{-- features start--}}
+   <li class="heading">
+    <h3 class="uppercase">مميزات الخدمه</h3>
+</li>
+<li class="nav-item  ">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-service"></i>
+        <span class="title">المميزات</span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+        <li class="nav-item  ">
+            <a href="{{ route('features.index')}}" class="nav-link ">
+                <span class="title">المميزات</span>
+            </a>
+        </li>
+
+        <li class="nav-item  ">
+            <a href="{{ route('features.create')}}" class="nav-link ">
+                <span class="title">اضافة ميزه</span>
+            </a>
+        </li>
+    </ul>
+</li>
+{{--features end  --}}
+
+
+
                  {{-- clients start--}}
                  <li class="heading">
                     <h3 class="uppercase">عملائنا</h3>

@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
-    protected $fillable =['name' ,'price', 'description'];
+    protected $fillable =['name' ,'price', 'image'];
+
+const PATH="images/services/";
+    function features(){
+        return $this->belongsToMany(Feature::class);
+    }
 }

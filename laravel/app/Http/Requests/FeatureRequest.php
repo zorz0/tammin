@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreServiceRequest extends FormRequest
+class FeatureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,12 +21,14 @@ class StoreServiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => 'required|string|max:255',
-            'price'=>'required|numeric',
-            'image'=>'required|image:mime,png,jpg,jpeg,gif,svg:max:2048',
-            "feature_id"    => "required|array",
-            "feature_id.*"  => "required|integer|exists:features,id",
-        ];
+
+        $role['name']='required|string|max:255|unique:features,name';
+
+        if($this->method()=="PUT"){
+            $role['name']='required|string|max:255|unique:features,name,'.$this->feature->id;
+  
+        }
+        return  $role;
+    
     }
 }

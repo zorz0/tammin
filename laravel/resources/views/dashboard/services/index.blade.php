@@ -27,7 +27,8 @@
                             <th> # </th>
                             <th> اسم الخدمه </th>
                             <th> سعر الخدمه</th>
-                            <th> وصف الخدمه </th>
+                            <th>الصوره</th>
+                            <th> المميزات</th>
                             <th> حدث </th>
                         </tr>
                     </thead>
@@ -37,7 +38,18 @@
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $service->name }}</td>
                             <td> {{ $service->price }} </td>
-                            <td> {{ $service->description }} </td>
+                            <td>
+                                <img src="{{ asset('storage/'.$service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
+                            </td>
+                            <td>
+                               <ul>
+                                 @foreach ($service->features as $feature )
+                                     <li>{{ $feature->name }}</li>
+                        
+                                 @endforeach
+                            </ul> 
+                            
+                            </td>
                             <td >
                                <form method="post" action="{{route('services.destroy' , $service->id) }}" style="display: inline-block">
                                 @csrf
