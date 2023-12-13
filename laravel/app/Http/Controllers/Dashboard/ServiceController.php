@@ -13,7 +13,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::paginate(1, ['id', 'name', 'price', 'image']);
+        $services = Service::paginate(10, ['id', 'name', 'price', 'image']);
         return view('dashboard.services.index', ['services' => $services]);
     }
 
@@ -50,20 +50,37 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        $feature = Feature::get(['id', 'name']);
+        $service->with('features');
+        $features = Feature::get(['id', 'name']);
         return view('dashboard.services.edit', compact('features','service'));
     }
-    public function update(StoreServiceRequest $request)
+    public function update(StoreServiceRequest $request, Service $service)
     {
-        $inputs = $request->all();
-        $service = Service::whereId($inputs['id'])->update(['name' => $inputs['name'], 'description' => $inputs['description'], 'price' => $inputs['price']]);
+       
+        DB::transaction(function () use ($service, $request): void {
+           $service->update([
+                'name' => $request->name,
+                'price' => $request->price,
+                'image' => uploadImage($request->image, Service::PATH)
+            ]);
+        
+            
+            $service->features()->sync($request->feature_id);
+
+
+           
+        });
         Alert::info(' الخدمات', 'تم تعديل الخدمة بنجاح');
         return redirect()->route('services.index');
     }
 
     public function destroy(Service $service)
     {
+       
+        DB::transaction(function () use ($service): void {
+        $service->features()->detach();
         $service->delete();
+        });
         Alert::info(' الخدمات', 'تم حذف الخدمة بنجاح');
         return redirect()->route('services.index');
     }
