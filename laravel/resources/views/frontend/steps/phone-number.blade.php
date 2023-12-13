@@ -24,6 +24,9 @@
                   <label for="exampleInputPassword1" class="form-label">رقم الجوال </label>
                   <input class="ta form-control input-of-buy"  placeholder="رقم الجوال" name="phone">
                 </div>
+                @error('phone')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
                  <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">مشغل الشبكه           </label>
@@ -34,6 +37,9 @@
                         @endforeach
                     </select>
                 </div>
+                @error('phone')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
                 <div class="btn-info-box mt-4  d-flex justify-content-center">
                     <button  class=" ta btn btn-secondary btn-sm mt-4 w-50  " >تأكيد</button>
                 </div>

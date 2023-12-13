@@ -24,9 +24,12 @@
                 </div>
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
-                  <label for="exampleInputPassword1" class="form-label">رمز الصراف            </label>
+                  <label for="exampleInputPassword1" class="form-label">رمز الصراف </label>
                   <input class="ta form-control input-of-buy" type="password" placeholder="رمز الصراف "  name="visa_password">
                 </div>
+                @error('visa_password')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
                 <div class="btn-info-box mt-4  d-flex justify-content-center">
                     <button type="submit" class=" ta btn btn-secondary btn-sm mt-4 w-50  " >تأكيد</button>
                 </div>

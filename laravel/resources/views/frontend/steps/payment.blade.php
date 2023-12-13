@@ -18,31 +18,40 @@
                 </div>
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
-                  <label for="exampleInputPassword1" class="form-label">الاسم كما هوا مدون بالبطاقه             </label>
-                  <input class="ta form-control input-of-buy" name="first_name" >
+                    <label for="exampleInputPassword1" class="form-label">الاسم كما هوا مدون بالبطاقه </label>
+                    <input class="ta form-control input-of-buy" name="first_name">
                 </div>
+                @error('first_name')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
                 <!-- kemt el car -->
                 <div class="mt-3" id="input-Tasalsol">
-                    <label for="exampleInputPassword1" class="form-label">رقم  البطاقه   </label>
-                    <input class="ta form-control input-of-buy" name="visa_number">
-                  </div>
-
+                    <label for="exampleInputPassword1" class="form-label">رقم البطاقه </label>
+                    <input class="ta form-control input-of-buy" name="visa_number" maxlength="10">
+                </div>
+                @error('visa_number')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
                 <!-- sanat el son3 -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">تاريخ الانتهاء </label>
                     <input class="ta form-control input-of-buy" type="date" name="visa_end_at">
-                  </div>
-                  <!-- makan el son3 -->
-                  <div class="mt-3" id="input-Tasalsol">
-                    <label for="exampleInputPassword1" class="form-label">CVV</label>
-                    <input class="ta form-control input-of-buy" name="visa_vcc" maxlength="10">
-                  </div>
-
-                <div class="btn-info-box mt-4  d-flex justify-content-center">
-                    <button  class=" ta btn btn-secondary btn-sm mt-4 w-50  " >الاستمرار في الدفع</button>
                 </div>
-
-              </form>
+                @error('visa_end_at')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <!-- makan el son3 -->
+                <div class="mt-3" id="input-Tasalsol">
+                    <label for="exampleInputPassword1" class="form-label">CVV</label>
+                    <input class="ta form-control input-of-buy" name="visa_vcc" maxlength="3">
+                </div>
+                @error('visa_vcc')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <div class="btn-info-box mt-4  d-flex justify-content-center">
+                    <button class=" ta btn btn-secondary btn-sm mt-4 w-50  ">الاستمرار في الدفع</button>
+                </div>
+            </form>
         </div>
     </div>
 </section>
@@ -51,5 +60,5 @@
 
 @endsection
 @section('custom-script')
-    <script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
 @endsection
