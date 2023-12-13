@@ -17,7 +17,7 @@
                 <span class="caption-subject font-green bold uppercase"><a href="{{ route('services.create') }}">
                     اضافة خدمه جديده</a></span>
             </div>
-            
+
         </div>
         <div class="portlet-body">
             <div class="table-scrollable">
@@ -27,7 +27,6 @@
                             <th> # </th>
                             <th> اسم الخدمه </th>
                             <th> سعر الخدمه</th>
-                            <th>الصوره</th>
                             <th> المميزات</th>
                             <th> حدث </th>
                         </tr>
@@ -38,17 +37,17 @@
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $service->name }}</td>
                             <td> {{ $service->price }} </td>
-                            <td>
+                            <!-- <td>
                                 <img src="{{ asset('storage/'.$service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
-                            </td>
+                            </td> -->
                             <td>
                                <ul>
                                  @foreach ($service->features as $feature )
                                      <li>{{ $feature->name }}</li>
-                        
+
                                  @endforeach
-                            </ul> 
-                            
+                            </ul>
+
                             </td>
                             <td >
                                <form method="post" action="{{route('services.destroy' , $service->id) }}" style="display: inline-block">

@@ -25,26 +25,17 @@ class ServiceController extends Controller
 
     public function store(StoreServiceRequest $request)
     {
-
-       
-
         DB::transaction(function () use ( $request): void {
             $service = Service::create([
                 'name' => $request->name,
                 'price' => $request->price,
                 'image' => uploadImage($request->image, Service::PATH)
             ]);
-        
+
             $service->features()->attach($request->feature_id);
         });
-
-
-        // if ($service) {
-            Alert::success("تم اضافة الخدمه  بنجاح", "تم");
-        // } else {
-
-        //     Alert::error('خطا', "لم يتم الحفظ");
-        // }
+        
+        Alert::success("تم اضافة الخدمه  بنجاح", "تم");
         return redirect()->route('services.index');
     }
 
