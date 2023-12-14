@@ -51,7 +51,7 @@
                             </label>
                             <div class="col-md-4">
                                 <input type="file" name="image" data-required="1" class="form-control">
-                                <img src="{{ asset('storage/'.$service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
+                                <img src="{{ asset($service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
                             @error('image')
                             <small class="text-danger">{{ $message }}</small>
                             @enderror

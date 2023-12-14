@@ -38,7 +38,7 @@
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $setting->website_name }}</td>
                             <td>
-                                <img src="{{ asset('storage/'.$setting::PATH.$setting->logo) }}" alt="logo" style="width: 10rem;height:10rem;">
+                                <img src="{{ asset($setting::PATH.$setting->logo) }}" alt="logo" style="width: 10rem;height:10rem;">
                             </td>
                            
                            

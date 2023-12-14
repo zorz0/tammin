@@ -21,12 +21,20 @@ class StoreServiceRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+
+        $role = [
             'name' => 'required|string|max:255',
-            'price'=>'required|numeric',
-            'image'=>'required|image:mime,png,jpg,jpeg,gif,svg:max:2048',
+            'price' => 'required|numeric',
             "feature_id"    => "required|array",
             "feature_id.*"  => "required|integer|exists:features,id",
         ];
+
+        if ($this->method() == 'PUT' || $this->method() == 'PATCH') {
+            $role['image'] = 'sometimes|image:mime,png,jpg,jpeg,gif,svg:max:2048';
+        } else {
+            $role['image'] = 'required|image:mime,png,jpg,jpeg,gif,svg:max:2048';
+        }
+
+        return $role;
     }
 }

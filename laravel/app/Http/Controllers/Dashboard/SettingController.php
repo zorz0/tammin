@@ -22,13 +22,7 @@ public function edit(Setting $setting){
 
 public function update(UpdateSettingRequest $request,Setting $setting){
      
-
-    $logo=$setting->logo;
-    if($request->hasFile('logo')){
-        deleteImage($logo,Setting::PATH);
-        $logo=uploadImage($request->logo,Setting::PATH);
-    }
-   
+   $logo=$request->hasFile('logo')?uploadImage($request->logo,Setting::PATH,$setting->logo):$setting->logo;
   $updates_setting=  $setting->update([
      'seo_title'=>$request->seo_title,
         'website_name'=>$request->website_name,
@@ -36,7 +30,6 @@ public function update(UpdateSettingRequest $request,Setting $setting){
         'footer_desc'=>$request->footer_desc,
         'seo_desc'=>$request->seo_desc,
         'logo'=>$logo
-        
     ]);
     if(  $updates_setting){
         Alert::success('تم التحديث بنجاح','نج التديث');

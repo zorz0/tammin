@@ -53,7 +53,7 @@
                             </label>
                             <div class="col-md-4">
                                 <input type="file" name="logo" data-required="1" class="form-control">
-                                <img src="{{ asset('storage/'.$setting::PATH.$setting->logo) }}" alt="logo" style="width: 10rem;height:10rem;">
+                                <img src="{{ asset($setting::PATH.$setting->logo) }}" alt="logo" style="width: 8rem;height:8rem;">
                             </div>
                             @error('logo')
                             <small class="text-danger">{{ $message }}</small>

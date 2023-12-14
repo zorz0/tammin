@@ -63,7 +63,7 @@
                                     class=" m-2 row   border border-1 rounded  justify-content-center align-items-center">
                                     <div class="col-4">
                                         <figure>
-                                            <img src="{{ asset('storage/'.$service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
+                                            <img src="{{ asset($service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
                                             <h3 class="text-center bold">808 ريال</h3>
                                         </figure>
                                     </div>

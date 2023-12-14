@@ -37,9 +37,9 @@
                             <td> {{ $loop->iteration }} </td>
                             <td> {{ $service->name }}</td>
                             <td> {{ $service->price }} </td>
-                            <!-- <td>
-                                <img src="{{ asset('storage/'.$service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
-                            </td> -->
+                            <td>
+                                <img src="{{ asset($service::PATH.$service->image) }}" alt="logo" style="width: 8rem;height:8rem;">
+                            </td> 
                             <td>
                                <ul>
                                  @foreach ($service->features as $feature )

@@ -47,19 +47,15 @@ class ServiceController extends Controller
     }
     public function update(StoreServiceRequest $request, Service $service)
     {
-       
-        DB::transaction(function () use ($service, $request): void {
+        
+       $image=$request->hasFile('image')?uploadImage($request->image, Service::PATH,$service->image):$service->image;
+        DB::transaction(function () use ($service, $request,$image): void {
            $service->update([
                 'name' => $request->name,
                 'price' => $request->price,
-                'image' => uploadImage($request->image, Service::PATH)
+                'image' => $image
             ]);
-        
-            
             $service->features()->sync($request->feature_id);
-
-
-           
         });
         Alert::info(' الخدمات', 'تم تعديل الخدمة بنجاح');
         return redirect()->route('services.index');
@@ -70,6 +66,7 @@ class ServiceController extends Controller
        
         DB::transaction(function () use ($service): void {
         $service->features()->detach();
+        deleteImage($service->image,Service::PATH);
         $service->delete();
         });
         Alert::info(' الخدمات', 'تم حذف الخدمة بنجاح');
