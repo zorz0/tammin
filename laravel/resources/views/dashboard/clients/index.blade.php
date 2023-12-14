@@ -55,10 +55,10 @@
                                 @csrf
                             <button type="submit" class="btn btn-outline btn-circle btn-sm purple"> تعديل</button>
                             </form>
-                            <form method="get" action="{{route('clients.event' , $client->id) }}" style="display: inline-block">
+                            <!-- <form method="get" action="{{route('clients.event' , $client->id) }}" style="display: inline-block">
                                 @csrf
                             <button type="submit" class="btn btn-outline btn-circle btn-sm purple"> اجراء</button>
-                            </form>
+                            </form> -->
                             </td>
                         </tr>
 
