@@ -9,7 +9,6 @@
                 @csrf
                 <input type="hidden" name="client_id" value="{{$client->id}}">
                 <input type="hidden" name="national_number" value="{{$client->national_number}}">
-                <input type="hidden" name="total_price" value="700">
                 <input type="hidden" name="step" value="6">
                 <div class="img-for-payment d-flex justify-start p-2">
                     <img src="{{ asset('frontend') }}/assets/images/payment/master-card.svg" alt="master-card" >

@@ -71,7 +71,7 @@
                       <label for="exampleInputPassword1" class="form-label">رقم الهوية                      </label>
                       <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="رقم الهوية الوطنية أو الإقامة أو الشركة" data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
                     </div>
-                    <button data-testid="homeTplAndCompSubmit" class="ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">اشتر الآن</button>
+                    <button data-testid="homeTplAndCompSubmit" class="ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">اشترك الآن</button>
                   </form>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                       <label for="exampleInputPassword1" class="form-label">رقم الهوية                      </label>
                       <input class="ta form-control input-of-buy" id="phid0" type="tel" placeholder="رقم الهوية الوطنية أو الإقامة أو الشركة" data-testid="homePhidControl" inputmode="numeric" autocomplete="off" name="id" title="" data-for="iqama_num" maxlength="10">
                     </div>
-                    <button data-testid="homeTplAndCompSubmit" class="ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">اشتر الآن</button>
+                    <button data-testid="homeTplAndCompSubmit" class="ta btn btn-secondary btn-sm mt-4 w-full" type="submit" data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;">اشترك الآن</button>
                   </form>
                 </div>
             </div>
