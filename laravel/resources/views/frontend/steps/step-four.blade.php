@@ -55,11 +55,11 @@
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h6>سعر الوثيقه</h6>
-                                <p>760ريال</p>
+                                <p>0.0ريال</p>
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h6>خصم عدم وجود مطالبات</h6>
-                                <p>760ريال</p>
+                                <p>0.0ريال</p>
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h6>رسوم اداريه</h6>
@@ -67,19 +67,19 @@
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h6>قسط اشتراك التأمين</h6>
-                                <p>760ريال</p>
+                                <p>0.0ريال</p>
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h6>المجموع الجزئي</h6>
-                                <p>760ريال</p>
+                                <p>0.0ريال</p>
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h6>ضريبه القيمه المضافه</h6>
-                                <p>114ريال</p>
+                                <p>0.0ريال</p>
                             </div>
                             <div class="p-2 descripton-of-takafol d-flex justify-content-between">
                                 <h4>المبلغ الأجمالي</h4>
-                                <h3>874ريال</ا>
+                                <h3>{{ $service->price }}ريال</ا>
                             </div>
                             <hr>
                             <div class="btn-info-box mt-4">

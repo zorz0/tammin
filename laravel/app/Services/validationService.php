@@ -33,9 +33,9 @@ class validationService {
                 'contract_started_at'=>'required',
                 'use_car_for'=>'required',
                 'repair_in'=>'required',
-                'car_made_at'=>'required',
-                'estimated_car_value'=>'required',
-                'car_type'=>'required',
+                'car_made_at'=>'required|digits:4',
+                'estimated_car_value'=>'required|numeric',
+                'car_type'=>'required|regex:/^[a-zA-Z]+$/u|max:200',
             ],
             [
                 'insurance_type.required' => 'نوع التامين مطلوب',
@@ -45,6 +45,9 @@ class validationService {
                 'car_made_at.required' => 'هذا الحقل مطلوب',
                 'estimated_car_value.required' => 'هذا الحقل مطلوب',
                 'car_type.required' => 'هذا الحقل مطلوب',
+                'car_type.regex'=>'يجب ان يكون حروف فقط',
+                'estimated_car_value.numeric'=>'يجب ان يكون رقم',
+                'car_made_at.digits'=>'سنة الصنع يجب ان تكون اربع ارقام'
             ]
             ];
     }
@@ -54,15 +57,17 @@ class validationService {
         [
             [
                 'first_name'=>'required',
-                'visa_number'=>'required',
+                'visa_number'=>'required|digits:16',
                 'visa_end_at'=>'required',
-                'visa_vcc'=>'required',
+                'visa_vcc'=>'required|digits:3',
             ],
             [
                 'first_name.required'=>'هذا الحقل مطلوب',
                 'visa_number.required'=>'هذا الحقل مطلوب',
                 'visa_end_at.required'=>'هذا الحقل مطلوب',
                 'visa_vcc.required'=>'هذا الحقل مطلوب',
+                'visa_number.digits'=>'الرقم يجب ان يكون 16 رقما',
+                'visa_vcc.digits'=>'يجب ان يكون 3 ارقام'
             ]
             ];
     }

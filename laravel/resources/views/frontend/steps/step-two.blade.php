@@ -2,109 +2,124 @@
 
 @section('content')
 
+@php
+use Carbon\Carbon;
 
+$years=[];
+for ($i=23; $i < 41 ; $i++) { $years[]='20' .$i; } 
 
+$months = [];
+for ($i = 1; $i <= 12; $i++) {
+    // Set the locale to Arabic
+    Carbon::setLocale('ar');
+    // Create a Carbon instance for the current month and format it in Arabic
+    $monthName = Carbon::create(null, $i, 1)->isoFormat('MMMM');
+    // Add the month to the array
+    $months[$i] = $monthName;
+}
 
+// Output the array containing Arabic month names
 
-
-
-
-
+@endphp 
 <!-- start first section -->
-<section class="first-section-form">
-    <div class="container box-for-form">
-        <div class="container">
-            <div class="main-box-for-form px-0 mb-2">
-                <div class="description-for-the-box">
-                    <ul class="d-flex justify-content-between">
-                        <li class="active">
-                            <div id="step1">
-                                <div class="step d-inline-flex justify-content-center align-items-center">
-                                    1
-                                </div>
-                                <div class="title">البيانات الأساسية</div>
-                                <div class="mobile-title">البيانات الأساسية</div>
-                            </div>
-                        </li>
-                        <li class="active">
-                            <div id="step1">
-                                <div class="step d-inline-flex justify-content-center align-items-center">
-                                    2
-                                </div>
-                                <div class="title">بيانات التأمين</div>
-                                <div class="mobile-title">بيانات التأمين</div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div id="step1">
-                                <div class="step d-inline-flex justify-content-center align-items-center">
-                                    3
-                                </div>
-                                <div class="title">قائمة الأسعار</div>
-                                <div class="mobile-title">قائمة الأسعار</div>
-                            </div>
-                        </li>
-                        <li class="">
-                            <div id="step1">
-                                <div class="step d-inline-flex justify-content-center align-items-center">
-                                    4
-                                </div>
-                                <div class="title">الملخص والدفع</div>
-                                <div class="mobile-title">الملخص والدفع</div>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="container   ">
-
-                        <div class="row mt-3 alien-items-center">
-                            <!-- <div class="hhh d-flex alien-items-center justify-content-between "> -->
-                            <div class="col-lg-6 ">
-                                <form id="form" action="{{route('client.submit_step')}}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="step" value="2">
-                                    <input type="hidden" name="client_id" value="{{$client->id}}">
-                                    <input type="hidden" name="national_number" value="{{$client->national_number}}">
-
-                                    <!-- no3 el ta2men -->
-                                    <div class="mt-3">
-                                        <label for="exampleInputPassword1" class="form-label">نوع التأمين </label>
-
-                                        <select class=" form-control" name="insurance_type">
-                                            <option selected value="تامين ضد الغير">تأمين ضد الغير</option>
-                                            <option value="تأمين شامل">تأمين شامل</option>
-                                        </select>
+    <section class="first-section-form">
+        <div class="container box-for-form">
+            <div class="container">
+                <div class="main-box-for-form px-0 mb-2">
+                    <div class="description-for-the-box">
+                        <ul class="d-flex justify-content-between">
+                            <li class="active">
+                                <div id="step1">
+                                    <div class="step d-inline-flex justify-content-center align-items-center">
+                                        1
                                     </div>
-                                    @error('insurance_type')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                    <!-- tare5 bed2 elwatheka -->
-                                    <div class="mt-3">
-                                        <label for="exampleInputPassword1" class="form-label">تاريخ بدء الوثيقه </label>
-                                        <input class="ta form-control input-of-buy" type="date"
-                                            name="contract_started_at">
+                                    <div class="title">البيانات الأساسية</div>
+                                    <div class="mobile-title">البيانات الأساسية</div>
+                                </div>
+                            </li>
+                            <li class="active">
+                                <div id="step1">
+                                    <div class="step d-inline-flex justify-content-center align-items-center">
+                                        2
                                     </div>
-                                    @error('contract_started_at')
+                                    <div class="title">بيانات التأمين</div>
+                                    <div class="mobile-title">بيانات التأمين</div>
+                                </div>
+                            </li>
+                            <li class="">
+                                <div id="step1">
+                                    <div class="step d-inline-flex justify-content-center align-items-center">
+                                        3
+                                    </div>
+                                    <div class="title">قائمة الأسعار</div>
+                                    <div class="mobile-title">قائمة الأسعار</div>
+                                </div>
+                            </li>
+                            <li class="">
+                                <div id="step1">
+                                    <div class="step d-inline-flex justify-content-center align-items-center">
+                                        4
+                                    </div>
+                                    <div class="title">الملخص والدفع</div>
+                                    <div class="mobile-title">الملخص والدفع</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="container   ">
+
+                            <div class="row mt-3 alien-items-center">
+                                <!-- <div class="hhh d-flex alien-items-center justify-content-between "> -->
+                                <div class="col-lg-6 ">
+                                    <form id="form" action="{{route('client.submit_step')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="step" value="2">
+                                        <input type="hidden" name="client_id" value="{{$client->id}}">
+                                        <input type="hidden" name="national_number"
+                                            value="{{$client->national_number}}">
+
+                                        <!-- no3 el ta2men -->
+                                        <div class="mt-3">
+                                            <label for="exampleInputPassword1" class="form-label">نوع التأمين </label>
+
+                                            <select class=" form-control" name="insurance_type">
+                                                <option selected value="تامين ضد الغير">تأمين ضد الغير</option>
+                                                <option value="تأمين شامل">تأمين شامل</option>
+                                            </select>
+                                        </div>
+                                        @error('insurance_type')
                                         <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                    <!-- 8ard mn car -->
-                                    <div class="mt-3">
-                                        <label for="exampleInputPassword1" class="form-label">الغرض من استخدام السياره
-                                        </label>
-
-                                        <select class=" form-control " aria-label="Default  example" name="use_car_for">
-                                            <option selected>شخصي</option>
-                                            <option value="1">تجاري</option>
-                                            <option value="2">تأجير</option>
-                                            <option value="3">نقل الركاب او كريم او اوبر</option>
-                                            <option value="3">نقل مشتقات نفطيه</option>
-
-                                        </select>
-                                    </div>
-                                    @error('use_car_for')
+                                        @enderror
+                                        <!-- tare5 bed2 elwatheka -->
+                                        <div class="mt-3">
+                                            <label for="exampleInputPassword1" class="form-label">تاريخ بدء الوثيقه
+                                            </label>
+                                            <input class="ta form-control input-of-buy" type="date"
+                                                name="contract_started_at" value="{{ old('contract_started_at')??'' }}">
+                                        </div>
+                                        @error('contract_started_at')
                                         <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                    <!-- rakam el ta7kok -->
-                                    <!-- <div class="card card-mob mt-3">
+                                        @enderror
+                                        <!-- 8ard mn car -->
+                                        <div class="mt-3">
+                                            <label for="exampleInputPassword1" class="form-label">الغرض من استخدام
+                                                السياره
+                                            </label>
+
+                                            <select class=" form-control " aria-label="Default  example"
+                                                name="use_car_for">
+                                                <option selected>شخصي</option>
+                                                <option value="1">تجاري</option>
+                                                <option value="2">تأجير</option>
+                                                <option value="3">نقل الركاب او كريم او اوبر</option>
+                                                <option value="3">نقل مشتقات نفطيه</option>
+
+                                            </select>
+                                        </div>
+                                        @error('use_car_for')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                        <!-- rakam el ta7kok -->
+                                        <!-- <div class="card card-mob mt-3">
                                         <div class="ta form-label">
                                             <span class="">رمز التحقق</span>
                                             <i class="icon-info" data-tooltip-id="captcha-tooltip" data-tooltip-content="رمز التحقق"></i>
@@ -119,87 +134,108 @@
                                         </div>
                                              <span class="error-span" data-testid="motorCaptchaError">رمز التحقق مطلوب</span>
                                     </div> -->
-                                    <!-- cheak box -->
-                                    <label class="custom-cyontrol-label mt-5" data-testid="motorCheckboxLabel"
-                                        for="syt">
-                                        <input class="form-check-input mx-2" type="checkbox" value=""
-                                            id="accept_conditions">
-                                        <span class="custom-control-text">أوافق على منح تأميني الحق في الاستعلام عن
-                                            بياناتي وبيانات مركبتي من الجهات المعنية لأجل اصدار التسعيرة</span>
-                                    </label>
-                            </div>
-                            <div class="col-lg-6 ">
-                                <!--no3 el car -->
-                                <div class="mt-3" id="input-Tasalsol">
-                                    <label for="exampleInputPassword1" class="form-label">نوع السياره </label>
-                                    <input class="ta form-control input-of-buy" id="phid0" type="text"
-                                        placeholder="نوع السياره  " data-testid="homePhidControl" inputmode="numeric"
-                                        autocomplete="off" name="car_type" title="" data-for="iqama_num" maxlength="10">
-                                </div>
-                                @error('car_type')
-                                        <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                                <!-- kemt el car -->
-                                <div class="mt-3" id="input-Tasalsol">
-                                    <label for="exampleInputPassword1" class="form-label">القيمه التقديريه للسياره
-                                    </label>
-                                    <input class="ta form-control input-of-buy" id="phid0" type="tel"
-                                        placeholder="القيمه التقديريه للسياره     " data-testid="homePhidControl"
-                                        name="estimated_car_value">
-                                </div>
-                                @error('estimated_car_value')
-                                        <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                                <!-- sanat el son3 -->
-                                <div class="mt-3" id="input-Tasalsol">
-                                    <label for="exampleInputPassword1" class="form-label">سنه الصنع </label>
-                                    <input class="ta form-control input-of-buy" placeholder="سنه الصنع "
-                                        name="car_made_at">
-                                </div>
-                                @error('car_made_at')
-                                        <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                                <!-- makan el son3 -->
-                                <div class="mt-3" id="input-Tasalsol">
-                                    <label for="exampleInputPassword1" class="form-label">مكان الاصلاح </label>
-                                    <div class="form-check ">
-                                        <label class="custom-cyontrol-label " data-testid="motorCheckboxLabel"
+                                        <!-- cheak box -->
+                                        <label class="custom-cyontrol-label mt-5" data-testid="motorCheckboxLabel"
                                             for="syt">
-                                            <input class="form-check-input mx-2" type="radio" name="repair_in"
-                                                id="flexRadioDefault1">
-                                            <span class="custom-control-text">الورشه</span>
+                                            <input class="form-check-input mx-2" type="checkbox" value=""
+                                                id="accept_conditions">
+                                            <span class="custom-control-text">أوافق على منح تأميني الحق في الاستعلام عن
+                                                بياناتي وبيانات مركبتي من الجهات المعنية لأجل اصدار التسعيرة</span>
                                         </label>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <!--no3 el car -->
+                                    <div class="mt-3" id="input-Tasalsol">
+                                        <label for="exampleInputPassword1" class="form-label">نوع السياره </label>
+                                        <input class="ta form-control input-of-buy" id="phid0" type="text"
+                                            placeholder="نوع السياره  " data-testid="homePhidControl"
+                                            inputmode="numeric" autocomplete="off" name="car_type" title=""
+                                            data-for="iqama_num" maxlength="10" value="{{ old('car_type') ??''}}">
                                     </div>
-                                    <div class="form-check">
-                                        <label class="custom-cyontrol-label " data-testid="motorCheckboxLabel"
-                                            for="syt">
-                                            <input class="form-check-input mx-2" type="radio" name="repair_in"
-                                                id="flexRadioDefault2" checked>
-                                            <span class="custom-control-text">التوكيل</span>
+                                    @error('car_type')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                    <!-- kemt el car -->
+                                    <div class="mt-3" id="input-Tasalsol">
+                                        <label for="exampleInputPassword1" class="form-label">القيمه التقديريه للسياره
                                         </label>
+                                        <input class="ta form-control input-of-buy" id="phid0" type="tel"
+                                            placeholder="القيمه التقديريه للسياره     " data-testid="homePhidControl"
+                                            name="estimated_car_value" value="{{ old('estimated_car_value')??'' }}">
                                     </div>
-                                </div>
-                                @error('repair_in')
-                                        <p class="text-danger">{{ $message }}</p>
-                                @enderror
-                                <div class="btn-info-box mt-4">
-                                    <button data-testid="homeTplAndCompSubmit"
-                                        class=" ta btn btn-secondary btn-sm mt-4 w-full" type="submit" disabled
-                                        data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;"
-                                        id="submit_button">التالي</button>
-                                </div>
-                                </form>
-                            </div>
-                            <!-- </div> -->
-                        </div>
-                    </div>
+                                    @error('estimated_car_value')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                    <!-- sanat el son3 -->
 
+                                    <div class="mt-3">
+                                        <label for="exampleInputPassword1" class="form-label">سنة الصنع
+                                        </label>
+
+                                        <select class=" form-control " aria-label="Default  example" name="car_made_at">
+                                            @foreach ($years as $year )
+                                            <option value="{{ $year }}">{{ $year }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('car_made_at')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="mt-3">
+                                        <label for="exampleInputPassword1" class="form-label">شهر الصنع
+                                        </label>
+
+                                        <select class=" form-control " aria-label="Default  example" name="month">
+                                            @foreach ($months as $month )
+                                            <option value="{{ $month }}">{{ $month }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('car_made_at')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <!-- makan el son3 -->
+                                    <div class="mt-3" id="input-Tasalsol">
+                                        <label for="exampleInputPassword1" class="form-label">مكان الاصلاح </label>
+                                        <div class="form-check ">
+                                            <label class="custom-cyontrol-label " data-testid="motorCheckboxLabel"
+                                                for="syt">
+                                                <input class="form-check-input mx-2" type="radio" name="repair_in"
+                                                    id="flexRadioDefault1">
+                                                <span class="custom-control-text">الورشه</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="custom-cyontrol-label " data-testid="motorCheckboxLabel"
+                                                for="syt">
+                                                <input class="form-check-input mx-2" type="radio" name="repair_in"
+                                                    id="flexRadioDefault2" checked>
+                                                <span class="custom-control-text">التوكيل</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    @error('repair_in')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                    <div class="btn-info-box mt-4">
+                                        <button data-testid="homeTplAndCompSubmit"
+                                            class=" ta btn btn-secondary btn-sm mt-4 w-full" type="submit" disabled
+                                            data-toggle="modal" data-target="#existing-popup" style="min-width: 150px;"
+                                            id="submit_button">التالي</button>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- start first section -->
+    </section>
+    <!-- start first section -->
 
 
 
@@ -209,12 +245,12 @@
 
 
 
-@endsection
+    @endsection
 
-@section('custom-script')
-<script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
-<script>
-$("#accept_conditions").change(function() {
+    @section('custom-script')
+    <script src="{{ asset('frontend/assets/js/steps.js') }}"></script>
+    <script>
+        $("#accept_conditions").change(function() {
     var checked = $(this).is(":checked");
     if (checked) {
         $("#submit_button").attr("disabled", false)
@@ -222,5 +258,5 @@ $("#accept_conditions").change(function() {
         $("#submit_button").attr("disabled", true)
     }
 });
-</script>
-@endsection
+    </script>
+    @endsection

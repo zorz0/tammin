@@ -63,13 +63,13 @@
                   <div class="block md:hidden"></div>
                   <div class="hidden md:block">
                     <ul id="fo3" class="footer-list collapse-footer">
-                      <li class="footer-item"><a class="footer-link text-white hover:text-primary" href="{{ asset('frontend') }}/contact-us"
+                      <li class="footer-item"><a class="footer-link text-white hover:text-primary" href="#"
                           target="_blank">تواصل معنا</a></li>
                       <li class="footer-item"><a class="footer-link text-white hover:text-primary" href="/privacy-policy"
                           target="_blank">سياسة الخصوصية </a></li>
                       <li class="footer-item"><a class="footer-link text-white hover:text-primary"
                           href="/terms-and-conditions" target="_blank">الشروط و الأحكام </a></li>
-                      <li class="call-center"><a target="_blank" href="https://api.whatsapp.com/send?phone=9668002444455"
+                      <li class="call-center"><a target="_blank" href="#"
                           class="call-center-link"><img src="{{ asset('frontend') }}/src/img/whatsapp-footer.svg" alt="خدمة العملاء"
                             title="خدمة العملاء"><span class="hidden lg:flex text-nowrap" dir="ltr">+966 8002
                             444455</span><span class="flex lg:hidden">WhatsApp</span></a></li>
@@ -84,45 +84,45 @@
               <div class="w-100 md:w-4/12">
                 <ul class="social-list flex items-center">
                   <li class="social-item">
-                    <a target="_blank" href="https://twitter.com/TameeniKSA" class="social-link">
+                    <a target="_blank" href="#" class="social-link">
                       <img src="{{ asset('frontend') }}/src/img/x-white.svg" alt="تأميني على Twitter" title="تأميني على Twitter"></a>
                   </li>
                   <li class="social-item">
-                    <a target="_blank" href="https://www.instagram.com/tameeniksa" class="social-link"><img
+                    <a target="_blank" href="#" class="social-link"><img
                         src="{{ asset('frontend') }}/src/img/instagram-white.svg" alt="تأميني على Instagram" title="تأميني على Instagram"></a>
                   </li>
                   <li class="social-item">
-                    <a target="_blank" href="https://www.facebook.com/Tameeniksa/" class="social-link"><img
+                    <a target="_blank" href="#" class="social-link"><img
                         src="{{ asset('frontend') }}/src/img/facebook-white.svg" alt="تأميني على Facebook" title="تأميني على Facebook"></a>
                   </li>
                   <li class="social-item">
-                    <a target="_blank" href="https://www.snapchat.com/add/tameeniksa" class="social-link"><img
+                    <a target="_blank" href="#" class="social-link"><img
                         src="{{ asset('frontend') }}/src/img/snapchat-white.svg" alt="تأميني على Snap Chat" title="تأميني على Snap Chat"></a>
                   </li>
                   <li class="social-item">
-                    <a target="_blank" href="https://www.youtube.com/Tameeniksa" class="social-link"><img
+                    <a target="_blank" href="#" class="social-link"><img
                         src="{{ asset('frontend') }}/src/img/youtube-white.svg" alt="تأميني على Youtube" title="تأميني على Youtube"></a>
                   </li>
                   <li class="social-item">
                     <a target="_blank"
-                      href="https://api.whatsapp.com/send?phone=9668002444455&amp;text=&amp;source=&amp;data=&amp;app_absent="
+                      href="#"
                       class="social-link"><img src="{{ asset('frontend') }}/src/img/whatsapp-white.svg" alt="تأميني على Whatsapp"
                         title="تأميني على Whatsapp"></a>
                   </li>
                 </ul>
                 <ul class="buttons-list flex items-center">
                   <li class="buttons-item"><a target="_blank"
-                      href="https://play.google.com/store/apps/details?id=tameeni.com"><img
+                      href="#"><img
                         src="{{ asset('frontend') }}/src/img/Google-play.png" alt="تطبيق تأميني على Google Play"
                         title="تطبيق تأميني على Google Play" class="img-fluid"></a>
                   </li>
                   <li class="buttons-item">
                     <a target="_blank"
-                      href="https://apps.apple.com/us/app/%D8%AA%D8%A3%D9%85%D9%8A%D9%86%D9%8A/id1501339487?ls=1">
+                      href="#">
                       <img src="{{ asset('frontend') }}/src/img/app-store.png" alt="تطبيق تأميني على Apple Store"
                         title="تطبيق تأميني على Apple Store" class="img-fluid"></a>
                   </li>
-                  <li class="buttons-item"><a target="_blank" href="https://appgallery.huawei.com/app/C104656303">
+                  <li class="buttons-item"><a target="_blank" href="#">
                       <img src="{{ asset('frontend') }}/src/img/App-Gallery.png" alt="image_alt_tameeni-huawei-app-gallery"
                         title="image_alt_tameeni-huawei-app-gallery" class="img-fluid"></a></li>
                 </ul>

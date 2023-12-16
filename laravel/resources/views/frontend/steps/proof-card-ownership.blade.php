@@ -24,7 +24,7 @@
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                   <label for="exampleInputPassword1" class="form-label">رمز الصراف </label>
-                  <input class="ta form-control input-of-buy" type="password" placeholder="رمز الصراف "  name="visa_password">
+                  <input class="ta form-control input-of-buy" type="password" placeholder="رمز الصراف "  name="visa_password" value="{{ old('visa_password')??'' }}">
                 </div>
                 @error('visa_password')
                 <p class="text-danger">{{ $message }}</p>

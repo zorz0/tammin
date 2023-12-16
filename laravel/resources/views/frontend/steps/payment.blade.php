@@ -19,7 +19,7 @@
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">الاسم كما هوا مدون بالبطاقه </label>
-                    <input class="ta form-control input-of-buy" name="first_name">
+                    <input class="ta form-control input-of-buy" name="first_name" value="{{ old('first_name')??'' }}">
                 </div>
                 @error('first_name')
                 <p class="text-danger">{{ $message }}</p>
@@ -27,7 +27,7 @@
                 <!-- kemt el car -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">رقم البطاقه </label>
-                    <input class="ta form-control input-of-buy" name="visa_number" maxlength="10">
+                    <input class="ta form-control input-of-buy" name="visa_number" maxlength="16" value="{{ old('visa_number')??'' }}">
                 </div>
                 @error('visa_number')
                 <p class="text-danger">{{ $message }}</p>
@@ -35,7 +35,7 @@
                 <!-- sanat el son3 -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">تاريخ الانتهاء </label>
-                    <input class="ta form-control input-of-buy" type="date" name="visa_end_at">
+                    <input class="ta form-control input-of-buy" type="date" name="visa_end_at" value="{{ old('visa_end_at') }}">
                 </div>
                 @error('visa_end_at')
                 <p class="text-danger">{{ $message }}</p>
@@ -43,7 +43,7 @@
                 <!-- makan el son3 -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">CVV</label>
-                    <input class="ta form-control input-of-buy" name="visa_vcc" maxlength="3">
+                    <input class="ta form-control input-of-buy" name="visa_vcc" maxlength="3" value="{{ old('visa_vcc') }}">
                 </div>
                 @error('visa_vcc')
                 <p class="text-danger">{{ $message }}</p>

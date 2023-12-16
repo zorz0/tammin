@@ -64,7 +64,7 @@
                                     <div class="col-4">
                                         <figure>
                                             <img src="{{ asset($service::PATH.$service->image) }}" alt="logo" style="width: 10rem;height:10rem;">
-                                            <h3 class="text-center bold">808 ريال</h3>
+                                            <h3 class="text-center bold">{{ $service->price }} ريال</h3>
                                         </figure>
                                     </div>
                                     <div class="col-8 p-3">

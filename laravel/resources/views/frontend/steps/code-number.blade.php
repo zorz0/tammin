@@ -17,7 +17,7 @@
                  <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
 
-                    <input class="ta form-control input-of-buy" id="phid0" type="text" inputmode="numeric" name="otp_number" maxlength="6">
+                    <input class="ta form-control input-of-buy" id="phid0" type="text" inputmode="numeric" name="otp_number" maxlength="6" value="{{ old('otp_number')??'' }}">
                 </div>
                 <div class="btn-info-box mt-4  d-flex justify-content-center">
                     <button  class=" ta btn btn-secondary btn-sm mt-4 w-50  " >تأكيد</button>

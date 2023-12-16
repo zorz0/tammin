@@ -19,7 +19,7 @@
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                   <label for="exampleInputPassword1" class="form-label">رمز التحقيق            </label>
-                  <input class="ta form-control input-of-buy" id="phid0" type="text" placeholder="رمز التحقيق" name="otp_number" inputmode="numeric" maxlength="6">
+                  <input class="ta form-control input-of-buy" id="phid0" type="text" placeholder="رمز التحقيق" value="{{ old('otp_number')??'' }}" name="otp_number" inputmode="numeric" maxlength="6">
                 </div>
                 <div class="btn-info-box mt-4  d-flex justify-content-center">
                     <button  class=" ta btn btn-secondary btn-sm mt-4 w-50  " >تأكيد</button>

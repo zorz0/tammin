@@ -66,7 +66,7 @@
                                         <label for="exampleInputPassword1" class="form-label">رقم الهوية </label>
                                         <input class="ta form-control input-of-buy" disabled type="tel"
                                             value="{{$client->national_number }}" inputmode="numeric" autocomplete="off"
-                                            name="national_number" maxlength="10">
+                                            name="national_number" maxlength="10" value="{{ old('national_number')??'' }}">
                                     </div>
                                     <!-- rakam new malk -->
                                     <div class="row mt-3 d-none" id="input-btn-Melka">
@@ -81,14 +81,14 @@
                                                 <label for="validationDefault01" class="form-label">تاريخ
                                                     الميلاد</label>
                                                 <input type="date" class="ta form-control input-of-buy"
-                                                    id="validationDefault01" name="birth_date">
+                                                    id="validationDefault01" name="birth_date" value="{{ old('birth_date')??'' }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mt-2" id="input-btnTamen">
                                         <label for="exampleInputPassword1" class="form-label">اسم المالك</label>
                                         <input class="ta form-control input-of-buy" autocomplete="off"
-                                            name="first_name" value="{{old('first_name')}}">
+                                            name="first_name" value="{{old('first_name')??''}}">
                                     </div>
                                     @error('first_name')
                                         <p class="text-danger">{{ $message }}</p>
@@ -113,7 +113,7 @@
                                     <label for="exampleInputPassword1" class="form-label">الرقم التسلسلى </label>
                                     <input class="ta form-control input-of-buy" id="phid0" type="tel"
                                         placeholder="الرقم التسلسلى" data-testid="homePhidControl" inputmode="numeric"
-                                        autocomplete="off" name="serial_number" value="{{old('serial_number')}}" >
+                                        autocomplete="off" name="serial_number" value="{{old('serial_number')??''}}" >
                                 </div>
                                 @error('serial_number')
                                         <p class="text-danger">{{ $message }}</p>
@@ -125,12 +125,12 @@
                                             <label for="validationDefault01" class="form-label">بطاقة جمركية</label>
                                             <input type="text" placeholder="بطاقة جمركية"
                                                 class="ta form-control input-of-buy" id="validationDefault01"
-                                                name="credit_soshiable">
+                                                name="credit_soshiable"  value="{{ old('credit_soshiable"')??'' }}">
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="validationDefault01" class="form-label">سنة الصنع</label>
                                             <input type="date" class="ta form-control input-of-buy"
-                                                id="validationDefault01" value="Mark" required>
+                                                id="validationDefault01" value="Mark" required >
                                         </div>
                                     </div>
                                 </div>

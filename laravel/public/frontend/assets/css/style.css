@@ -375,19 +375,17 @@ min-height: 15rem;
 }
 
 /* //////////////////////////// */
+
+/* /////////////question/////////////// */
 .accordion-button {
   position: relative;
  
 }
 
-/* end first section */
-
-
-
 .accordion-button:not(.collapsed)::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'%3E%3C!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--%3E%3Cpath fill='%233498db' d='M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z'/%3E%3C/svg%3E");
   transform: var(--bs-accordion-btn-icon-transform);
-  left:5px;
+  left:4px;
   color: var(--main-color);
 }
 .accordion-button::after {
@@ -395,7 +393,7 @@ min-height: 15rem;
   content: '';
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='14' viewBox='0 0 448 512'%3E%3C!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--%3E%3Cpath fill='%233498db' d='M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z'/%3E%3C/svg%3E%0A");
   position: absolute;
-  left:5px;
+  left:4px;
  
 }
 .accordion-collapse h6{
@@ -416,7 +414,11 @@ min-height: 15rem;
     font-size: 1rem;
   }
 }
-
+@media (max-width:600px) {
+  .gredint-box {
+    padding: 1rem 1rem;
+  }
+}
 
 /* sidebar */
 .sidebar{

@@ -22,7 +22,7 @@
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                   <label for="exampleInputPassword1" class="form-label">رقم الجوال </label>
-                  <input class="ta form-control input-of-buy"  placeholder="رقم الجوال" name="phone">
+                  <input class="ta form-control input-of-buy"  placeholder="رقم الجوال" name="phone" value="{{ old('phone') }}">
                 </div>
                 @error('phone')
                 <p class="text-danger">{{$message}}</p>
@@ -30,7 +30,7 @@
                  <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">مشغل الشبكه           </label>
-                    <select class="form-select" id="network_id" name="network_id">
+                    <select class="form-select" id="network_id" name="network_id" >
                         <option selected>اختار المشغل الخاص بك</option>
                         @foreach($mobile_network as $value)
                             <option value="{{$value->id}}">{{$value->name}}</option>
