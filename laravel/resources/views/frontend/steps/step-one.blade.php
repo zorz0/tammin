@@ -88,7 +88,7 @@
                                     <div class="mt-2" id="input-btnTamen">
                                         <label for="exampleInputPassword1" class="form-label">اسم المالك</label>
                                         <input class="ta form-control input-of-buy" autocomplete="off"
-                                            name="first_name">
+                                            name="first_name" value="{{old('first_name')}}">
                                     </div>
                                     @error('first_name')
                                         <p class="text-danger">{{ $message }}</p>
@@ -113,8 +113,11 @@
                                     <label for="exampleInputPassword1" class="form-label">الرقم التسلسلى </label>
                                     <input class="ta form-control input-of-buy" id="phid0" type="tel"
                                         placeholder="الرقم التسلسلى" data-testid="homePhidControl" inputmode="numeric"
-                                        autocomplete="off" name="serial_number" maxlength="10">
+                                        autocomplete="off" name="serial_number" value="{{old('serial_number')}}" >
                                 </div>
+                                @error('serial_number')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 <!-- rakam new malk -->
                                 <div class="row mt-3 d-none" id="input-gomrok">
                                     <div class="test d-flex">

@@ -9,11 +9,16 @@ class validationService {
                     [
                         'client_id'=>'required',
                         'first_name'=>'required',
-                        'national_number' =>'required'
+                        'national_number' =>'required',
+                        'serial_number' =>'required|numeric'
                     ] ,
                     [
                         'first_name.required' => 'الاسم مطلوب',
-                        'national_number' => 'الرقم القومى مطلوب'
+                        'national_number' => 'الرقم القومى مطلوب',
+                        'serial_number.required' => 'هذا الحقل مطلوب',
+                        'serial_number.numeric' => 'هذا الحقل يجب ان يكون رقم',
+
+
                     ]
                 ];
     }

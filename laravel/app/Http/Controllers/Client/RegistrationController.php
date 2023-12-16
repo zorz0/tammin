@@ -34,7 +34,8 @@ class RegistrationController extends Controller
             $services = Service::all();
             return view('frontend.steps.step-three' , compact('client' ,'services'));
         }elseif ($client->end_point == STEP_FOUR) {
-            return view('frontend.steps.step-four' , compact('client'));
+            $service = Service::whereId($client->service_id)->first();
+            return view('frontend.steps.step-four' , compact('client','service'));
         }elseif ($client->end_point == STEP_FIVE) {
             return view('frontend.steps.payment' , compact('client'));
         }elseif ($client->end_point == STEP_SIX) {
