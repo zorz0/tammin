@@ -5,17 +5,22 @@
 <section class="payment-section m-5  section-padding">
     <div class="container">
         <div class="row">
+
+
+           
+                <div class="img-for-payment d-flex justify-between mb-3 ">
+                    <img src="{{ asset('frontend') }}/assets/images/payment/mada-card.svg" alt="payment" >
+                    <img src="{{ asset('frontend') }}/assets/images/payment/master-card.svg" alt="payment" >
+                    <img src="{{ asset('frontend') }}/assets/images/payment/sadad-payment-logo.svg" alt="payment" >
+                    <img src="{{ asset('frontend') }}/assets/images/payment/visa-card.svg" alt="payment" >
+                </div> 
+        
             <form class="payment-description p-5" action="{{route('client.submit_step')}}" method="post">
                 @csrf
                 <input type="hidden" name="client_id" value="{{ $client->id }}">
                 <input type="hidden" name="national_number" value="{{$client->national_number}}">
                 <input type="hidden" name="step" value="5">
-                <div class="img-for-payment d-flex justify-between p-2">
-                    <img src="{{ asset('frontend') }}/assets/images/payment/mada-card.svg" alt="" srcset="">
-                    <img src="{{ asset('frontend') }}/assets/images/payment/master-card.svg" alt="" srcset="">
-                    <img src="{{ asset('frontend') }}/assets/images/payment/sadad-payment-logo.svg" alt="" srcset="">
-                    <img src="{{ asset('frontend') }}/assets/images/payment/visa-card.svg" alt="" srcset="">
-                </div>
+    
                 <!--no3 el car -->
                 <div class="mt-3" id="input-Tasalsol">
                     <label for="exampleInputPassword1" class="form-label">الاسم كما هوا مدون بالبطاقه </label>

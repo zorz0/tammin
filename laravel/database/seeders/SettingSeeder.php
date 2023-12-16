@@ -16,7 +16,7 @@ class SettingSeeder extends Seeder
         Setting::create([
             'website_name'=>"Tammin",
             'description'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ullam perspiciatis ex ipsam iusto, incidunt accusantium quae iure totam? Nulla?',
-            'logo'=>'logo.svg',
+            'logo'=>'logo.png',
             'footer_desc'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ullam perspiciatis ex ipsam iusto, incidunt accusantium quae iure totam? Nulla?',
             'seo_desc'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. In ullam perspiciatis ex ipsam iusto, incidunt accusantium quae iure totam? Nulla?',
             'seo_title'=>'seo keywords'

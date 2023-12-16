@@ -8,7 +8,7 @@
             <i class="fa-solid fa-bars fs-3 ms-5 " id="sidebar-open"></i>
              <a class="navbar-brand" href="/">
 
-            <img src="{{ asset('frontend') }}/assets/images/logo.svg" alt="" srcset="" class="w-100">
+            <img src="{{ asset('frontend') }}/assets/images/logo.png" alt="" srcset="" class="w-100 logo">
           </a></div>
            </div>
         
@@ -20,7 +20,7 @@
       <div class="flex-shrink-0 sidebar shadow " >
         <div class="d-flex p-3 justify-content-between align-items-center py-3 px-2 bg-white m-0">
             <i class="fa-solid fa-close fs-3 me-1" id="sidebar-close"></i>
-            <img src="{{ asset('frontend/assets/images/logo.svg') }}" alt="logo" class="w-50 ms-5">
+            <img src="{{ asset('frontend/assets/images/logo.png') }}" alt="logo" class="w-50 ms-5 logo">
         </div>
         
         <ul class="list-unstyled  w-100 ">

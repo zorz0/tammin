@@ -57,15 +57,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label>مميزات الخدمه</label>
-                            <div class=" control-label col-md-3">
-                               @foreach ($features as $feature  )
-                               <label class="mt-checkbox mt-checkbox-outline"> {{ $feature->name }}
-                                <input type="checkbox" value="{{ $feature->id }}" name="feature_id[]" >
-                                <span></span>
+                            <label class="control-label col-md-3">مميزات الخدمه
+                                <span class="required" aria-required="true"> * </span>
                             </label>
-                                   
-                               @endforeach
+                            <div class=" control-label col-md-4">
+                <ul>
+
+                    @foreach ($features as $feature  )
+                   <li style="text-align: start">
+                    
+                        <input type="checkbox" value="{{ $feature->id }}" name="feature_id[]"       >
+   
+                        {{ $feature->name }}
+                   </li>
+                        
+                    @endforeach
+                </ul>
                                
                             </div>
 

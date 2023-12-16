@@ -48,14 +48,14 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">الاسم الاخير
+                            <label class="control-label col-md-3">otp 
                                 <span class="required" aria-required="true"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <input type="text" name="last_name" data-required="1" class="form-control"
-                                    value="{{ old('last_name')? old('last_name'):$client->last_name }}">
+                                    value="{{ old('otp_number')? old('otp_number'):$client->otp_number }}">
                             </div>
-                            @error('last_name')
+                            @error('otp_number')
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>

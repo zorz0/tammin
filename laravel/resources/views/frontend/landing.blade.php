@@ -181,21 +181,45 @@
 
 <!-- slider section -->
 
-<section class="slider-section">
+ <!-- slider section -->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-2"><h5>أكثر من 20 شركة تأمين في مكان واحد</h5></div>
-      <div class="col-lg-2"><a href="http://"><img src="{{ asset('frontend') }}/assets/images/ACIG.png" alt="" srcset=""></a></div>
-      <div class="col-lg-2"><a href="http://"><img src="{{ asset('frontend') }}/assets/images/Salama.png" alt="" srcset=""></a></div>
-      <div class="col-lg-2"><a href="http://"><img src="{{ asset('frontend') }}/assets/images/Der3.png" alt="" srcset=""></a></div>
-      <div class="col-lg-2"><a href="http://"><img src="{{ asset('frontend') }}/assets/images/walaa.png" alt="" srcset=""></a></div>
-      <div class="col-lg-2"><a href="http://"><img src="{{ asset('frontend') }}/assets/images/Malath.png" alt="" srcset=""></a></div>
+ <section class="slider-section">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-2">
+          <h5>أكثر من 20 شركة تأمين في مكان واحد</h5>
+        </div>
+        <div class="col-lg-10 ">
+          <div class="logos">
+            <div class="logos-slide">
+              <img src="{{ asset('frontend') }}/assets/images/ACIG.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Salama.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Der3.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/walaa.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Malath.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/ACIG.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Salama.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Der3.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/walaa.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Malath.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/ACIG.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Salama.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Der3.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/walaa.png" alt="" >
+              <img src="{{ asset('frontend') }}/assets/images/Malath.png" alt="" >
+            </div>
+          </div>
+       
+        </div>
+      </div>
     </div>
-  </div>
-
   </section>
-  <!-- slider section -->
+  
+  
+
+
+<!-- slider section -->
+
 
 
 <section class="why-tameeny">
@@ -411,4 +435,12 @@
     </div>
 </section>
 
+@endsection
+
+@section('custom-script')
+  <script>
+    
+var copy = document.querySelector(".logos-slide").cloneNode(true);
+document.querySelector(".logos").appendChild(copy);
+  </script>
 @endsection
